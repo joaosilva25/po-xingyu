@@ -8,10 +8,10 @@ import { Container } from "@/components/ui/Section";
 
 export const Header = () => {
   const navLinks = [
-    { label: "Benefícios", href: "#benefits" },
-    { label: "Especialista", href: "#mentor" },
+    { label: "Ao vivo", href: "#ao-vivo" },
+    { label: "Mentor", href: "#mentor" },
+    { label: "Peças", href: "#pieces" },
     { label: "Bônus", href: "#bonus" },
-    { label: "Dúvidas", href: "#cta" },
   ];
 
   return (
@@ -45,7 +45,13 @@ export const Header = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-200 transition-colors duration-300 hover:text-white"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    document
+                      .querySelector(link.href)
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="text-[10px] font-regular uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -58,9 +64,17 @@ export const Header = () => {
               size="sm"
               variant="primary"
               className="px-4 py-2.5 text-[10px] sm:px-6 sm:py-3 sm:text-xs"
-              onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("cta")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
-              <Gem className="h-4 w-4 opacity-80" aria-hidden="true" strokeWidth={1.3} />
+              <Gem
+                className="h-4 w-4 opacity-80"
+                aria-hidden="true"
+                strokeWidth={1.3}
+              />
               QUERO MEU ACESSO
             </Button>
           </div>

@@ -211,7 +211,7 @@ export const PiecesCarouselSection = () => {
               onPointerMove={onPointerMove}
               onPointerUp={endDrag}
               onPointerCancel={endDrag}
-              className={`flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-px-6 md:scroll-px-12 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden select-none ${
+              className={`no-scrollbar flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-px-6 md:scroll-px-12 select-none ${
                 isDragging ? "cursor-grabbing" : "cursor-grab"
               }`}
               style={{ touchAction: "pan-y" }}

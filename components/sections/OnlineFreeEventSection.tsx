@@ -9,7 +9,7 @@ import { XingyuBackground } from "@/components/ui/XingyuBackground";
 
 export const OnlineFreeEventSection = () => {
   return (
-    <Section id="online-event" className="relative overflow-hidden bg-[#0b0d0e] text-white">
+    <Section id="ao-vivo" className="relative overflow-hidden bg-[#0b0d0e] text-white">
       <XingyuBackground variant="section" imageSrc="/background4.png" imageOpacity={0.18} />
 
       <Container className="grid gap-14 lg:grid-cols-2 lg:items-center">
