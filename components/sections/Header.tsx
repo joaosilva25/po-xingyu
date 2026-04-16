@@ -34,7 +34,7 @@ export const Header = () => {
                 alt="Logo"
                 width={200}
                 height={40}
-                className="h-8 w-auto select-none sm:h-10 md:h-12"
+                className="h-12 w-auto select-none"
                 draggable={false}
                 priority
               />
@@ -75,7 +75,7 @@ export const Header = () => {
                 aria-hidden="true"
                 strokeWidth={1.3}
               />
-              QUERO MEU ACESSO
+              Obter Acesso
             </Button>
           </div>
         </motion.div>

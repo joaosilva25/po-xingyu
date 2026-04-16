@@ -7,14 +7,21 @@ import { Section, Container } from "@/components/ui/Section";
 
 export const Hero = () => {
   return (
-    <Section className="h-screen flex items-center justify-center relative overflow-hidden bg-[#171a1d]">
+    <Section className="min-h-screen sm:h-screen flex items-start sm:items-center justify-center relative overflow-hidden bg-[#171a1d]">
       <div
         aria-hidden="true"
         className="absolute inset-0 z-0 bg-cover bg-top bg-no-repeat bg-[image:url('/heroMobile.jpg')] md:bg-[image:url('/heroTablet.jpg')] lg:bg-[image:url('/hero.jpg')]"
       />
-      <div aria-hidden="true" className="absolute inset-0 z-10 bg-black/55" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-10 bg-black/30 sm:bg-black/55"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-10 bg-gradient-to-b from-black/5 via-black/10 to-black/55 sm:hidden"
+      />
 
-      <div className="hidden lg:flex absolute right-[10%] xl:right-[12%] 2xl:right-[14%] top-[44%] xl:top-[42%] 2xl:top-[40%] -translate-y-1/2 z-20 items-center justify-center pointer-events-none">
+      <div className="hidden lg:flex absolute right-[10%] xl:right-[12%] 2xl:right-[14%] top-[44%] xl:top-[42%] 2xl:top-[40%] -translate-y-1/2 z-20 items-center justify-center pointer-events-none py-32">
         <div className="relative w-24 h-24 xl:w-28 xl:h-28">
           <div className="absolute inset-0 rounded-full bg-black/30 border border-white/10 backdrop-blur-sm" />
           <div className="absolute -inset-1 rounded-full border border-white/10 opacity-70" />
@@ -55,17 +62,17 @@ export const Hero = () => {
         </div>
       </div>
 
-      <Container className="z-20 flex h-full items-center pt-4 sm:pt-28 md:pt-32 pb-3">
-        <div className="text-left flex flex-col justify-center max-w-2xl">
+      <Container className="z-20 flex h-full items-start pt-24 pb-10 sm:items-center sm:pt-28 sm:pb-3 md:pt-32">
+        <div className="text-left flex w-full flex-col justify-center max-w-2xl items-center sm:items-start">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-5xl 2xl:text-6xl font-light leading-[1.0] mb-10 tracking-tight select-none text-white text-center sm:text-left"
+            className="text-[2.65rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.05] sm:leading-[1.0] mb-6 sm:mb-10 tracking-tight select-none text-white text-center sm:text-left"
           >
-            O maior especialista <br />
+            O maior especialista <br className="hidden sm:block" />
             de <span className="font-medium"> semijoias do Brasil </span>
-            <br></br>
+            <br className="hidden sm:block" />
             <span className="font-medium">está de volta!</span>
           </motion.h1>
 
@@ -73,7 +80,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-lg 3xl:text-xl text-zinc-300 max-w-xl mb-6 leading-tight font-regular select-none text-center sm:text-left mx-auto sm:mx-0"
+            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-5 sm:mb-6 leading-relaxed sm:leading-tight font-regular select-none text-center sm:text-left mx-auto sm:mx-0"
           >
             Aumente sua margem de lucro em até{" "}
             <span className="text-white font-medium">75%</span>. Adquira peças
@@ -89,9 +96,29 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-col items-start gap-8"
+            className="flex flex-col items-center sm:items-start gap-6 sm:gap-8 w-full"
           >
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-sm text-zinc-300 max-w-xl">
+            <div className="w-full max-w-xl space-y-2 text-sm text-zinc-200 sm:hidden">
+              <div className="flex items-start justify-center gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 text-white/85" />
+                <p className="leading-relaxed">
+                  Inscreva-se agora e participe do nosso{" "}
+                  <span className="text-white font-medium">
+                    grupo exclusivo no WhatsApp
+                  </span>
+                  .
+                </p>
+              </div>
+              <div className="flex items-start justify-center gap-2">
+                <Sparkles className="mt-0.5 h-4 w-4 text-white/85" />
+                <p className="leading-relaxed">
+                  <span className="text-white font-medium">+ de 10 mil</span>{" "}
+                  pessoas já se inscreveram.
+                </p>
+              </div>
+            </div>
+
+            <div className="hidden sm:flex flex-wrap items-center justify-center sm:justify-start gap-2 text-sm text-zinc-300 max-w-xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur">
                 <CheckCircle2 className="w-4 h-4 text-white/90" />
                 <p className="leading-relaxed">

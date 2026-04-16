@@ -99,7 +99,7 @@ export const EventAccessSection = () => {
                 <div className="flex items-start justify-end gap-8"></div>
 
                 <div>
-                  <p className="max-w-[20rem] text-[1.15rem] md:text-[1.22rem] leading-snug text-white font-light tracking-tight">
+                  <p className="max-w-[20rem] text-[1.15rem] md:text-[1.22rem] leading-snug text-white font-light tracking-tight text-center md:text-left">
                     {title}
                   </p>
                   <div
