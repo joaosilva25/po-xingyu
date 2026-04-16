@@ -14,7 +14,7 @@ export const Hero = () => {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-10 bg-black/30 sm:bg-black/55"
+        className="absolute inset-0 z-10 bg-black/70 md:bg-black/55"
       />
       <div
         aria-hidden="true"
@@ -68,7 +68,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-[2.65rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.05] sm:leading-[1.0] mb-6 sm:mb-10 tracking-tight select-none text-white text-center sm:text-left"
+            className="text-[2.65rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.05] sm:leading-[1.0] mb-6 md:mb-10 tracking-tight select-none text-white text-center sm:text-left"
           >
             O maior especialista <br className="hidden sm:block" />
             de <span className="font-medium"> semijoias do Brasil </span>
@@ -80,7 +80,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-5 sm:mb-6 leading-relaxed sm:leading-tight font-regular select-none text-center sm:text-left mx-auto sm:mx-0"
+            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed sm:leading-tight font-regular select-none text-center sm:text-left mx-auto sm:mx-0"
           >
             Aumente sua margem de lucro em até{" "}
             <span className="text-white font-medium">75%</span>. Adquira peças
@@ -98,26 +98,6 @@ export const Hero = () => {
             transition={{ duration: 1, delay: 0.6 }}
             className="flex flex-col items-center sm:items-start gap-6 sm:gap-8 w-full"
           >
-            <div className="w-full max-w-xl space-y-2 text-sm text-zinc-200 sm:hidden">
-              <div className="flex items-start justify-center gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 text-white/85" />
-                <p className="leading-relaxed">
-                  Inscreva-se agora e participe do nosso{" "}
-                  <span className="text-white font-medium">
-                    grupo exclusivo no WhatsApp
-                  </span>
-                  .
-                </p>
-              </div>
-              <div className="flex items-start justify-center gap-2">
-                <Sparkles className="mt-0.5 h-4 w-4 text-white/85" />
-                <p className="leading-relaxed">
-                  <span className="text-white font-medium">+ de 10 mil</span>{" "}
-                  pessoas já se inscreveram.
-                </p>
-              </div>
-            </div>
-
             <div className="hidden sm:flex flex-wrap items-center justify-center sm:justify-start gap-2 text-sm text-zinc-300 max-w-xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur">
                 <CheckCircle2 className="w-4 h-4 text-white/90" />
@@ -146,6 +126,26 @@ export const Hero = () => {
               />
               COMPRAR DA FÁBRICA
             </Button>
+
+            <div className="w-full max-w-xl space-y-2 text-sm text-zinc-200 sm:hidden">
+              <div className="hidden md:flex items-start justify-center gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 text-white/85" />
+                <p className="leading-relaxed text-center">
+                  Inscreva-se agora e participe do nosso{" "}
+                  <span className="text-white font-medium">
+                    grupo exclusivo no WhatsApp
+                  </span>
+                  .
+                </p>
+              </div>
+              <div className="flex items-start justify-center gap-2">
+                <Sparkles className="mt-0.5 h-4 w-4 text-white/85" />
+                <p className="leading-relaxed">
+                  <span className="text-white font-medium">+ de 10 mil</span>{" "}
+                  pessoas já se inscreveram.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </Container>

@@ -88,11 +88,11 @@ export const EventAccessSection = () => {
                 src={image}
                 alt={title}
                 fill
-                className="object-cover opacity-[0.58]"
+                className="object-cover opacity-[0.60]"
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-black/50"
+                className="absolute inset-0 bg-black/20"
               />
 
               <div className="relative flex min-h-[19.5rem] flex-col justify-between p-7 md:p-8">
