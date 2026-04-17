@@ -46,7 +46,7 @@ export const OnlineFreeEventSection = () => {
             Um evento exclusivo, online e gratuito
           </h2>
 
-          <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-tight font-regular select-none mx-auto sm:mx-0">
+          <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-relaxed font-regular select-none mx-auto sm:mx-0">
             Faremos nossa live através de um evento gratuito no Youtube, fácil
             assim, você vai perder?
           </p>

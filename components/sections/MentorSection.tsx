@@ -60,7 +60,7 @@ export const MentorSection = () => {
 
           <motion.p
             variants={staggerItemVariants}
-            className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-tight font-regular select-none text-center lg:text-right mx-auto lg:mx-0"
+            className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-relaxed font-regular select-none text-center lg:text-right mx-auto lg:mx-0"
           >
             Participação exclusiva do maior especialista em semijoias do Brasil.
             Neste evento, teremos a presença confirmada de Leo China, o maior

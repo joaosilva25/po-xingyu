@@ -73,7 +73,7 @@ export const ResaleBenefitsSection = () => {
             Da fábrica direto para sua casa
           </h2>
 
-          <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-tight font-regular select-none mx-auto sm:mx-0">
+          <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-relaxed font-regular select-none mx-auto sm:mx-0">
             Garantir suas peças de revenda na Xingyu é sinônimo de segurança e
             qualidade, mas os benefícios não acabam por aí…
           </p>

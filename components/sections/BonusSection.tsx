@@ -80,7 +80,7 @@ export const BonusSection = () => {
           <h2 className="mt-5 text-4xl font-regular leading-[1.05] tracking-tight text-white">
             Bônus para você
           </h2>
-          <p className="mx-auto mt-7 max-w-3xl text-lg md:text-xl text-zinc-300 leading-tight">
+          <p className="mx-auto mt-7 max-w-3xl text-lg md:text-xl text-zinc-300 leading-relaxed">
             Você também terá acesso aos conteúdos estratégicos que separam quem
             vende por preço de quem vende com margem, posicionamento e
             previsibilidade.
