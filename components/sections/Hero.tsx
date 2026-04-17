@@ -12,7 +12,7 @@ import {
 
 export const Hero = () => {
   return (
-    <AnimatedSection className="min-h-screen  flex items-start sm:items-center justify-center relative overflow-hidden bg-[#171a1d]">
+    <AnimatedSection className="min-h-screen flex items-start justify-center relative overflow-hidden bg-[#171a1d] px-2 sm:items-center sm:px-8">
       <div
         aria-hidden="true"
         className="absolute inset-0 z-0 bg-cover bg-bottom md:bg-top bg-no-repeat bg-[image:url('/heroMobile.jpg')] md:bg-[image:url('/heroTablet.jpg')] lg:bg-[image:url('/hero.jpg')]"
@@ -79,17 +79,26 @@ export const Hero = () => {
         <div className="text-left flex w-full flex-col justify-center max-w-2xl items-center sm:items-start">
           <motion.h1
             variants={staggerItemVariants}
-            className="text-[2.45rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.15] mb-6 md:mb-8 tracking-tight select-none text-white text-center sm:text-left "
+            className="w-full max-w-xl text-balance text-[clamp(2.05rem,8vw,2.55rem)] sm:max-w-none sm:text-5xl 2xl:text-6xl font-light leading-[1.12] mb-6 md:mb-8 tracking-tight select-none text-white text-center sm:text-left mx-auto sm:mx-0"
           >
-            O maior especialista <br className="hidden sm:block" />
-            de <span className="font-medium"> semijoias do Brasil </span>
-            <br className="hidden sm:block" />
-            <span className="font-medium">está de volta!</span>
+            <span className="sm:hidden">
+              O maior especialista de
+              <br />
+              <span className="font-medium">semijoias do Brasil</span>
+              <br />
+              <span className="font-medium">está de volta!</span>
+            </span>
+            <span className="hidden sm:inline">
+              O maior especialista <br />
+              de <span className="font-medium">semijoias do Brasil</span>
+              <br />
+              <span className="font-medium">está de volta!</span>
+            </span>
           </motion.h1>
 
           <motion.p
             variants={staggerItemVariants}
-            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed  font-regular select-none text-center sm:text-left mx-auto sm:mx-0"
+            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed  font-regular select-none text-center sm:text-left px-4"
           >
             Aumente sua margem de lucro em até{" "}
             <span className="text-white font-medium">75%</span>. Adquira peças
@@ -134,7 +143,7 @@ export const Hero = () => {
                 </p>
               </div>
             </div>
-
+            <div className="px-4">
             <Button size="lg" className="w-full md:w-auto group">
               <Gem
                 className="w-5 h-5 opacity-80"
@@ -143,6 +152,7 @@ export const Hero = () => {
               />
               COMPRAR DA FÁBRICA
             </Button>
+            </div>
 
             <div className="w-full max-w-xl space-y-2 text-sm text-zinc-200 sm:hidden">
               <div className="hidden md:flex items-start justify-center gap-2">
