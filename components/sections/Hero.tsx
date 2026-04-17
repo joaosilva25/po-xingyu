@@ -98,7 +98,7 @@ export const Hero = () => {
 
           <motion.p
             variants={staggerItemVariants}
-            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed  font-regular select-none text-center sm:text-left px-4"
+            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed  font-regular select-none text-center sm:text-left px-4 md:px-0"
           >
             Aumente sua margem de lucro em até{" "}
             <span className="text-white font-medium">75%</span>. Adquira peças
@@ -143,7 +143,7 @@ export const Hero = () => {
                 </p>
               </div>
             </div>
-            <div className="px-4">
+            <div className="px-4 md:px-0">
               <Button size="lg" className="w-full md:w-auto group">
                 <Gem
                   className="w-5 h-5 opacity-80"
