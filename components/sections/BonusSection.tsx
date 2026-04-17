@@ -216,7 +216,7 @@ export const BonusSection = () => {
 
         <motion.div
           variants={staggerItemVariants}
-          className="mt-12 flex justify-center"
+          className="mt-8 flex justify-center"
         >
           <Button
             variant="primary"
