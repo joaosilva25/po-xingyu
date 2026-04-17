@@ -211,22 +211,6 @@ export const BonusSection = () => {
                 ))}
               </div>
             </motion.div>
-
-            <div className="mt-6 flex items-center justify-center gap-2">
-              {Array.from({ length: snapCount }).map((_, index) => (
-                <button
-                  key={`bonus-dot-${index}`}
-                  type="button"
-                  aria-label={`Ir para bônus ${index + 1}`}
-                  onClick={() => mobileEmblaApi?.scrollTo(index)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    index === selectedIndex
-                      ? "w-8 bg-white/90"
-                      : "w-2 bg-white/20"
-                  }`}
-                />
-              ))}
-            </div>
           </motion.div>
         </motion.div>
 
