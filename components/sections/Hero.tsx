@@ -79,7 +79,7 @@ export const Hero = () => {
         <div className="text-left flex w-full flex-col justify-center max-w-2xl items-center sm:items-start">
           <motion.h1
             variants={staggerItemVariants}
-            className="w-full max-w-xl text-balance text-[clamp(2.05rem,8vw,2.55rem)] sm:max-w-none sm:text-5xl 2xl:text-6xl font-light leading-[1.12] mb-6 md:mb-8 tracking-tight select-none text-white text-center sm:text-left mx-auto sm:mx-0"
+            className="w-full max-w-xl text-balance text-[clamp(2.05rem,8vw,2.55rem)] sm:max-w-none sm:text-5xl 2xl:text-6xl font-light leading-[1.12] mb-6 md:mb-8 tracking-tight select-none text-white text-center sm:text-left mx-auto sm:mx-0 px-4 md:px-0"
           >
             <span className="sm:hidden">
               O maior especialista de
@@ -144,14 +144,14 @@ export const Hero = () => {
               </div>
             </div>
             <div className="px-4">
-            <Button size="lg" className="w-full md:w-auto group">
-              <Gem
-                className="w-5 h-5 opacity-80"
-                aria-hidden="true"
-                strokeWidth={1.3}
-              />
-              COMPRAR DA FÁBRICA
-            </Button>
+              <Button size="lg" className="w-full md:w-auto group">
+                <Gem
+                  className="w-5 h-5 opacity-80"
+                  aria-hidden="true"
+                  strokeWidth={1.3}
+                />
+                COMPRAR DA FÁBRICA
+              </Button>
             </div>
 
             <div className="w-full max-w-xl space-y-2 text-sm text-zinc-200 sm:hidden">
@@ -165,7 +165,7 @@ export const Hero = () => {
                   .
                 </p>
               </div>
-              <div className="flex items-start justify-center gap-2">
+              <div className="flex items-start justify-center gap-2 mt-4 md:mt-0">
                 <Sparkles className="mt-0.5 h-4 w-4 text-white/85" />
                 <p className="leading-relaxed">
                   <span className="text-white font-medium">+ de 10 mil</span>{" "}
