@@ -27,7 +27,7 @@ export const MentorSection = () => {
         >
           <div className="relative aspect-[1.2/1] w-full overflow-hidden rounded-[2.4rem] border border-white/10 bg-black/25">
             <Image
-              src="/Leo.png"
+              src="/LeoChina.png"
               alt="Leo China"
               fill
               className="object-cover object-top"
