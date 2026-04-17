@@ -2,19 +2,16 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Container, Section } from "@/components/ui/Section";
+import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
 import { Button } from "../ui/Button";
 import { Gem } from "lucide-react";
 
 export const VipAccessSection = () => {
   return (
-    <Section id="cta" className="relative overflow-hidden bg-[#0b0d0e] text-white">
-      <Container className="space-y-8">
+    <AnimatedSection id="cta" className="relative overflow-hidden bg-[#0b0d0e] text-white">
+      <MotionContainer variants={staggerContainerVariants} className="space-y-8">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          variants={staggerItemVariants}
           className="relative overflow-hidden rounded-[1.6rem] border border-white/5 bg-black px-10 py-22 sm:px-10 md:px-24 flex"
         >
           <Image
@@ -26,9 +23,7 @@ export const VipAccessSection = () => {
             priority={false}
             draggable={false}
           />
-          <div aria-hidden="true" className="absolute inset-0 bg-violet-700/35 mix-blend-multiply" />
-          <div aria-hidden="true" className="absolute inset-0 bg-black/70" />
-
+          <div aria-hidden="true" className="absolute inset-0 bg-black/60 mix-blend-multiply" />
           <div className="relative z-10 flex w-full flex-col items-center justify-center gap-8 text-center">
             <div className="mx-auto max-w-[36rem]">
               <p className="text-3xl font-light leading-tight tracking-tight text-white md:text-[2.25rem]">
@@ -47,7 +42,7 @@ export const VipAccessSection = () => {
             </div>
           </div>
         </motion.div>
-      </Container>
-    </Section>
+      </MotionContainer>
+    </AnimatedSection>
   );
 };

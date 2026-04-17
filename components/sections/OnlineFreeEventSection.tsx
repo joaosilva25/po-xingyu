@@ -4,20 +4,17 @@ import { motion } from "framer-motion";
 import { Gem } from "lucide-react";
 import { FaYoutube } from "react-icons/fa";
 import { Button } from "@/components/ui/Button";
-import { Container, Section } from "@/components/ui/Section";
+import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
 import { XingyuBackground } from "@/components/ui/XingyuBackground";
 
 export const OnlineFreeEventSection = () => {
   return (
-    <Section id="ao-vivo" className="relative overflow-hidden bg-[#0b0d0e] text-white">
-      <XingyuBackground variant="section" imageSrc="/background4.png" imageOpacity={0.18} />
+    <AnimatedSection id="ao-vivo" className="relative overflow-hidden bg-[#0b0d0e] text-white">
+      <XingyuBackground variant="section" imageSrc="/bg1.png" imageOpacity={0.18} />
 
-      <Container className="grid gap-14 lg:grid-cols-2 lg:items-center">
+      <MotionContainer variants={staggerContainerVariants} className="grid gap-14 lg:grid-cols-2 lg:items-center">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          variants={staggerItemVariants}
           className="mx-auto max-w-2xl text-center sm:mx-0 sm:text-left"
         >
           <div className="inline-flex items-center justify-center gap-4 sm:justify-start">
@@ -25,8 +22,8 @@ export const OnlineFreeEventSection = () => {
             <span className="text-[0.62rem] uppercase tracking-[0.42em] text-zinc-300">Evento Ao Vivo</span>
           </div>
 
-          <h2 className="mt-5 text-4xl font-light leading-[1.0] tracking-tight select-none text-white">
-            Um evento <span className="font-medium">exclusivo</span>, <span className="font-medium">online</span> e <span className="font-medium">gratuito</span>
+          <h2 className="mt-5 text-4xl font-regular leading-[1.0] tracking-tight select-none text-white">
+            Um evento exclusivo, online e gratuito
           </h2>
 
           <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-tight font-regular select-none mx-auto sm:mx-0">
@@ -47,10 +44,7 @@ export const OnlineFreeEventSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 36 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
+          variants={staggerItemVariants}
           className="relative flex justify-center lg:justify-end"
         >
           <div className="relative w-full max-w-[32rem] aspect-[1.22/1] rounded-[2.4rem] border border-white/5 bg-black/40 overflow-hidden shadow-[0_40px_120px_-55px_rgba(255,255,255,0.28)] backdrop-blur-2xl">
@@ -64,7 +58,7 @@ export const OnlineFreeEventSection = () => {
             </div>
           </div>
         </motion.div>
-      </Container>
-    </Section>
+      </MotionContainer>
+    </AnimatedSection>
   );
 };

@@ -4,7 +4,7 @@ import React, { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Container, Section } from "@/components/ui/Section";
+import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
 import { XingyuBackground } from "@/components/ui/XingyuBackground";
 
 type Piece = {
@@ -16,12 +16,11 @@ type Piece = {
 export const PiecesCarouselSection = () => {
   const pieces = useMemo<Piece[]>(
     () => [
-      { id: "piece-1", title: "01", imageSrc: "/background2.png" },
-      { id: "piece-2", title: "02", imageSrc: "/background3.png" },
-      { id: "piece-3", title: "03", imageSrc: "/background4.png" },
-      { id: "piece-4", title: "04", imageSrc: "/background.png" },
-      { id: "piece-5", title: "05", imageSrc: "/background2.png" },
-      { id: "piece-6", title: "06", imageSrc: "/background3.png" },
+      { id: "piece-1", title: "Xingyu E1", imageSrc: "/background2.png" },
+      { id: "piece-2", title: "Xingyu E2", imageSrc: "/imgE1.png" },
+      { id: "piece-3", title: "Xingyu E3", imageSrc: "/imgE2.png" },
+      { id: "piece-4", title: "Xingyu E4", imageSrc: "/background.png" },
+      { id: "piece-5", title: "Xingyu E5", imageSrc: "/imgE3.png" },
     ],
     []
   );
@@ -160,31 +159,26 @@ export const PiecesCarouselSection = () => {
   };
 
   return (
-    <Section id="pieces" className="relative overflow-hidden bg-[#0b0d0e] text-white">
-      <XingyuBackground variant="section" imageSrc="/bg1.png" imageOpacity={0.14} className="opacity-60" />
+    <AnimatedSection id="pieces" className="relative overflow-hidden bg-[#0b0d0e] text-white">
+      <XingyuBackground variant="section" imageSrc="/bg1.png" imageOpacity={0.18} />
 
-      <Container className="space-y-12">
+      <MotionContainer variants={staggerContainerVariants} className="space-y-12">
         <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.85 }}
+          variants={staggerItemVariants}
           className="mx-auto max-w-4xl text-center sm:mx-0 sm:text-left"
         >
           <div className="inline-flex items-center justify-center gap-4 mb-6 sm:justify-start">
             <span aria-hidden="true" className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
             <span className="text-[0.62rem] uppercase tracking-[0.42em] text-zinc-300">Carrossel de Peças</span>
           </div>
-          <h2 className="text-4xl font-light leading-[1.08] tracking-tight">
+          <h2 className="text-4xl font-regular leading-[1.08] tracking-tight">
             E não para por aí, nesta live você terá acesso <br className="hidden md:block" />
             a descontos ao vivo em nosso evento
           </h2>
           <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-tight font-regular select-none mx-auto sm:mx-0">Conheça algumas de nossas peças.</p>
         </motion.div>
 
-        <div className="relative">
-
-
+        <motion.div variants={staggerItemVariants} className="relative">
           <div className="relative">
             <div className="flex items-center justify-end gap-3 mb-6">
               <button
@@ -205,7 +199,8 @@ export const PiecesCarouselSection = () => {
               </button>
             </div>
 
-            <div
+            <motion.div
+              variants={staggerContainerVariants}
               ref={scrollerRef}
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
@@ -216,14 +211,11 @@ export const PiecesCarouselSection = () => {
               }`}
               style={{ touchAction: "pan-y" }}
             >
-              {pieces.map((piece, index) => (
+              {pieces.map((piece) => (
                 <motion.article
                   key={piece.id}
                   data-piece-card
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.7, delay: index * 0.04 }}
+                  variants={staggerItemVariants}
                   className="relative flex-none w-[260px] sm:w-[300px] md:w-[340px] snap-center overflow-hidden rounded-[2.3rem] border border-white/10 bg-black/30 backdrop-blur-2xl shadow-[0_0_60px_-45px_rgba(255,255,255,0.08)]"
                 >
                   <div className="relative aspect-[4/5] w-full">
@@ -235,9 +227,7 @@ export const PiecesCarouselSection = () => {
                       priority={false}
                       draggable={false}
                     />
-                    <div aria-hidden="true" className="absolute inset-0 bg-violet-700/35 mix-blend-multiply" />
-                    <div aria-hidden="true" className="absolute inset-0 bg-black/55" />
-               
+                    <div aria-hidden="true" className="absolute inset-0 bg-black/40" />               
                   </div>
 
                   <div className="absolute inset-x-0 bottom-0 p-6">
@@ -249,14 +239,14 @@ export const PiecesCarouselSection = () => {
                   </div>
                 </motion.article>
               ))}
-            </div>
+            </motion.div>
 
             <p className="mt-5 text-[10px] text-zinc-400 uppercase tracking-[0.28em]">
               Arraste para o lado
             </p>
           </div>
-        </div>
-      </Container>
-    </Section>
+        </motion.div>
+      </MotionContainer>
+    </AnimatedSection>
   );
 };

@@ -3,19 +3,14 @@
 import { motion } from "framer-motion";
 import { Gem } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Container, Section } from "@/components/ui/Section";
+import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
 
 export const EventSection = () => {
   return (
-    <Section id="benefits" className="relative overflow-hidden bg-[#0b0d0e] text-white">
-    
-
-      <Container className="flex flex-col items-center gap-12">
+    <AnimatedSection id="benefits" className="relative overflow-hidden bg-[#0b0d0e] text-white">
+      <MotionContainer variants={staggerContainerVariants} className="flex flex-col items-center gap-12">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          variants={staggerItemVariants}
           className="text-3xl md:text-4xl font-light leading-tight tracking-tight text-center max-w-3xl"
         >
           Se você é <span className="font-medium">revendedor</span> ou{" "}
@@ -23,10 +18,7 @@ export const EventSection = () => {
         </motion.h2>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
+          variants={staggerItemVariants}
           className="relative w-full max-w-5xl"
         >
 
@@ -47,10 +39,7 @@ export const EventSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          variants={staggerItemVariants}
           className="flex justify-center"
         >
           <Button
@@ -63,7 +52,7 @@ export const EventSection = () => {
             GARANTIR VAGA
           </Button>
         </motion.div>
-      </Container>
-    </Section>
+      </MotionContainer>
+    </AnimatedSection>
   );
 };

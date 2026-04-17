@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 import { Sparkles, CheckCircle2, Gem } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Section, Container } from "@/components/ui/Section";
+import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
 
 export const Hero = () => {
   return (
-    <Section className="min-h-screen sm:h-screen flex items-start sm:items-center justify-center relative overflow-hidden bg-[#171a1d]">
+    <AnimatedSection className="min-h-screen sm:h-screen flex items-start sm:items-center justify-center relative overflow-hidden bg-[#171a1d]">
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 bg-cover bg-top bg-no-repeat bg-[image:url('/heroMobile.jpg')] md:bg-[image:url('/heroTablet.jpg')] lg:bg-[image:url('/hero.jpg')]"
+        className="absolute inset-0 z-0 bg-cover bg-bottom md:bg-top bg-no-repeat bg-[image:url('/heroMobile.jpg')] md:bg-[image:url('/heroTablet.jpg')] lg:bg-[image:url('/hero.jpg')]"
       />
       <div
         aria-hidden="true"
@@ -22,13 +22,13 @@ export const Hero = () => {
       />
 
       <div className="hidden lg:flex absolute right-[10%] xl:right-[12%] 2xl:right-[14%] top-[44%] xl:top-[42%] 2xl:top-[40%] -translate-y-1/2 z-20 items-center justify-center pointer-events-none py-32">
-        <div className="relative w-24 h-24 xl:w-28 xl:h-28">
-          <div className="absolute inset-0 rounded-full bg-black/30 border border-white/10 backdrop-blur-sm" />
-          <div className="absolute -inset-1 rounded-full border border-white/10 opacity-70" />
+        <div className="heroNeonRing relative w-32 h-32">
+          <div className="absolute inset-0 z-10 rounded-full bg-black/30 border border-white/10 backdrop-blur-sm" />
+          <div className="absolute -inset-1 z-10 rounded-full border border-white/10 opacity-70" />
           <svg
             viewBox="0 0 100 100"
             aria-hidden="true"
-            className="absolute inset-0 animate-spin-slow"
+            className="absolute inset-0 z-10 animate-spin-slow"
           >
             <defs>
               <path
@@ -52,7 +52,7 @@ export const Hero = () => {
               </textPath>
             </text>
           </svg>
-          <div className="absolute inset-5 rounded-full bg-white/5 border border-white/10 flex items-center justify-center" style={{
+          <div className="absolute inset-6 z-20 rounded-full bg-black/40 border border-white/10 flex items-center justify-center" style={{
             backdropFilter:"blur(12px)"
           }}>
             <Gem
@@ -64,13 +64,11 @@ export const Hero = () => {
         </div>
       </div>
 
-      <Container className="z-20 flex h-full items-start pt-24 pb-10 sm:items-center sm:pt-28 sm:pb-3 md:pt-32">
+      <MotionContainer variants={staggerContainerVariants} className="z-20 flex h-full items-start pt-24 pb-10 sm:items-center sm:pt-28 sm:pb-3 md:pt-32">
         <div className="text-left flex w-full flex-col justify-center max-w-2xl items-center sm:items-start">
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-[2.65rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.05] sm:leading-[1.0] mb-6 md:mb-10 tracking-tight select-none text-white text-center sm:text-left"
+            variants={staggerItemVariants}
+            className="text-[2.65rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.05] sm:leading-[1.0] mb-6 md:mb-10 tracking-tight select-none text-white text-center sm:text-left uppercase"
           >
             O maior especialista <br className="hidden sm:block" />
             de <span className="font-medium"> semijoias do Brasil </span>
@@ -79,9 +77,7 @@ export const Hero = () => {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            variants={staggerItemVariants}
             className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed sm:leading-tight font-regular select-none text-center sm:text-left mx-auto sm:mx-0"
           >
             Aumente sua margem de lucro em até{" "}
@@ -89,19 +85,19 @@ export const Hero = () => {
             de luxo diretamente da fábrica com preços até{" "}
             <span className="relative inline-block text-white font-medium">
               5x inferiores
-              <div className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent" />
+              <div className="hidden md:block absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent" />
             </span>{" "}
             aos fornecedores tradicionais.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
+            variants={staggerItemVariants}
             className="flex flex-col items-center sm:items-start gap-6 sm:gap-8 w-full"
           >
             <div className="hidden sm:flex flex-wrap items-center justify-center sm:justify-start gap-2 text-sm text-zinc-300 max-w-xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2" style={{
+                backdropFilter:"blur(5px)"
+              }}>
                 <CheckCircle2 className="w-4 h-4 text-white/90" />
                 <p className="leading-relaxed">
                   Inscreva-se agora e participe do nosso{" "}
@@ -111,7 +107,9 @@ export const Hero = () => {
                   .
                 </p>
               </div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-4 py-2 backdrop-blur">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2" style={{
+                backdropFilter:"blur(5px)"
+              }}>
                 <Sparkles className="w-4 h-4 text-white/90" />
                 <p className="leading-relaxed">
                   <span className="text-white font-medium">+ de 10 mil</span>{" "}
@@ -150,7 +148,87 @@ export const Hero = () => {
             </div>
           </motion.div>
         </div>
-      </Container>
-    </Section>
+      </MotionContainer>
+      <style jsx>{`
+        .heroNeonRing {
+          isolation: isolate;
+        }
+
+        .heroNeonRing::before {
+          content: "";
+          position: absolute;
+          inset: -3px;
+          border-radius: 9999px;
+          background: conic-gradient(
+            from 0deg,
+            rgba(255, 255, 255, 0) 0deg,
+            rgba(255, 255, 255, 0) 215deg,
+            rgba(255, 255, 255, 0.95) 246deg,
+            rgba(255, 255, 255, 0) 278deg,
+            rgba(255, 255, 255, 0) 360deg
+          );
+          opacity: 0.7;
+          filter: blur(0.6px);
+          transform: rotate(0deg);
+          animation: heroNeonSpin 6.8s linear infinite;
+          pointer-events: none;
+          z-index: 1;
+          -webkit-mask: radial-gradient(
+            farthest-side,
+            transparent calc(100% - 2.8px),
+            #000 calc(100% - 2px)
+          );
+          mask: radial-gradient(
+            farthest-side,
+            transparent calc(100% - 2.8px),
+            #000 calc(100% - 2px)
+          );
+        }
+
+        .heroNeonRing::after {
+          content: "";
+          position: absolute;
+          inset: -14px;
+          border-radius: 9999px;
+          background: conic-gradient(
+            from 0deg,
+            rgba(255, 255, 255, 0) 0deg,
+            rgba(255, 255, 255, 0) 215deg,
+            rgba(255, 255, 255, 0.75) 246deg,
+            rgba(255, 255, 255, 0) 278deg,
+            rgba(255, 255, 255, 0) 360deg
+          );
+          opacity: 0.22;
+          filter: blur(20px);
+          transform: rotate(0deg);
+          animation: heroNeonSpin 6.8s linear infinite;
+          pointer-events: none;
+          z-index: 0;
+          -webkit-mask: radial-gradient(
+            farthest-side,
+            transparent calc(100% - 12px),
+            #000 calc(100% - 11px)
+          );
+          mask: radial-gradient(
+            farthest-side,
+            transparent calc(100% - 12px),
+            #000 calc(100% - 11px)
+          );
+        }
+
+        @keyframes heroNeonSpin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .heroNeonRing::before,
+          .heroNeonRing::after {
+            animation: none;
+          }
+        }
+      `}</style>
+    </AnimatedSection>
   );
 };

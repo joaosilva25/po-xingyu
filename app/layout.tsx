@@ -1,11 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
+import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 
-const roboto = Roboto({
-  variable: "--font-roboto",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  weight: "variable",
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  weight: "variable",
 });
 
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -91,8 +97,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${roboto.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-roboto">{children}</body>
+    <html
+      lang="pt-BR"
+      className={`${plusJakartaSans.variable} ${sora.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col font-body">{children}</body>
     </html>
   );
 }

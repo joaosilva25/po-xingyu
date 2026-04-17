@@ -1,5 +1,4 @@
 import React from "react";
-import { Glow } from "@/components/ui/Glow";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { HighlightsBar } from "@/components/sections/HighlightsBar";
@@ -39,10 +38,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="min-h-screen bg-[#050505] text-zinc-100 selection:bg-emerald-500/30 overflow-x-hidden font-roboto">
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <Glow className="top-[-10%] right-[-10%] w-[50%] h-[50%] bg-white/15" />
-        </div>
+      <div className="min-h-screen bg-[#0b0d0e]  text-zinc-100 selection:bg-emerald-500/30 overflow-x-hidden">
 
         <Header />
 
