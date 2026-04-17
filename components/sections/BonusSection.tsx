@@ -47,27 +47,25 @@ export const BonusSection = () => {
     containScroll: "trimSnaps",
   });
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [snapCount, setSnapCount] = useState<number>(bonusItems.length);
+  const snapCount = bonusItems.length;
 
-  const updateMobileCarouselState = useCallback(() => {
+  const handleMobileCarouselSelect = useCallback(() => {
     if (!mobileEmblaApi) return;
 
     setSelectedIndex(mobileEmblaApi.selectedScrollSnap());
-    setSnapCount(mobileEmblaApi.scrollSnapList().length);
   }, [mobileEmblaApi]);
 
   useEffect(() => {
     if (!mobileEmblaApi) return;
 
-    updateMobileCarouselState();
-    mobileEmblaApi.on("select", updateMobileCarouselState);
-    mobileEmblaApi.on("reInit", updateMobileCarouselState);
+    mobileEmblaApi.on("select", handleMobileCarouselSelect);
+    mobileEmblaApi.on("reInit", handleMobileCarouselSelect);
 
     return () => {
-      mobileEmblaApi.off("select", updateMobileCarouselState);
-      mobileEmblaApi.off("reInit", updateMobileCarouselState);
+      mobileEmblaApi.off("select", handleMobileCarouselSelect);
+      mobileEmblaApi.off("reInit", handleMobileCarouselSelect);
     };
-  }, [mobileEmblaApi, updateMobileCarouselState]);
+  }, [mobileEmblaApi, handleMobileCarouselSelect]);
 
   return (
     <AnimatedSection
