@@ -23,7 +23,7 @@ export const VipAccessSection = () => {
       >
         <motion.div
           variants={staggerItemVariants}
-          className="relative overflow-hidden rounded-[1.6rem] border border-white/5 bg-black px-10 py-22 sm:px-10 md:px-24 flex"
+          className="relative overflow-hidden rounded-[1.6rem] border border-white/5 bg-black px-4 py-22 md:px-24 flex"
         >
           <Image
             src="/bg3.png"
@@ -42,7 +42,7 @@ export const VipAccessSection = () => {
             <div className="mx-auto max-w-[36rem]">
               <p className="text-3xl font-light leading-tight tracking-tight text-white md:text-[2.25rem]">
                 <span className="font-medium">Inscreva-se agora mesmo e</span>{" "}
-                faça parte do nosso grupo vip.
+                faça parte do nosso grupo vip
               </p>
 
               <Button
