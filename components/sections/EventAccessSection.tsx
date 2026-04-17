@@ -3,7 +3,12 @@
 import { motion } from "framer-motion";
 import { BadgePercent, Factory, Gem } from "lucide-react";
 import Image from "next/image";
-import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
+import {
+  AnimatedSection,
+  MotionContainer,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "@/components/ui/Section";
 import { XingyuBackground } from "@/components/ui/XingyuBackground";
 
 const accessItems = [
@@ -43,7 +48,10 @@ export const EventAccessSection = () => {
         className="opacity-60"
       />
 
-      <MotionContainer variants={staggerContainerVariants} className="space-y-14">
+      <MotionContainer
+        variants={staggerContainerVariants}
+        className="space-y-14"
+      >
         <motion.div
           variants={staggerItemVariants}
           className="mx-auto max-w-4xl text-center sm:mx-0 sm:text-left"
@@ -58,11 +66,14 @@ export const EventAccessSection = () => {
             </span>
           </div>
           <h2 className="mt-5 text-4xl font-light leading-[1.05] tracking-tight text-white">
-            O que você terá acesso neste{" "}evento
+            O que você terá acesso neste evento
           </h2>
         </motion.div>
 
-        <motion.div variants={staggerContainerVariants} className="grid gap-7 md:grid-cols-3 md:gap-8">
+        <motion.div
+          variants={staggerContainerVariants}
+          className="grid gap-7 md:grid-cols-3 md:gap-8"
+        >
           {accessItems.map(({ title, image, glow }) => (
             <motion.div
               key={title}
@@ -81,13 +92,12 @@ export const EventAccessSection = () => {
                 src={image}
                 alt={title}
                 fill
-                className="object-cover opacity-55 contrast-110 brightness-90"
+                className="object-cover contrast-110 brightness-90"
               />
               <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-black/60 mix-blend-multiply"
               />
-          
 
               <div className="relative flex min-h-[19.5rem] flex-col justify-between p-7 md:p-8">
                 <div className="flex items-start justify-end gap-8"></div>

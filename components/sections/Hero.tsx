@@ -3,11 +3,16 @@
 import { motion } from "framer-motion";
 import { Sparkles, CheckCircle2, Gem } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
+import {
+  AnimatedSection,
+  MotionContainer,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "@/components/ui/Section";
 
 export const Hero = () => {
   return (
-    <AnimatedSection className="min-h-screen sm:h-screen flex items-start sm:items-center justify-center relative overflow-hidden bg-[#171a1d]">
+    <AnimatedSection className="min-h-screen  flex items-start sm:items-center justify-center relative overflow-hidden bg-[#171a1d]">
       <div
         aria-hidden="true"
         className="absolute inset-0 z-0 bg-cover bg-bottom md:bg-top bg-no-repeat bg-[image:url('/heroMobile.jpg')] md:bg-[image:url('/heroTablet.jpg')] lg:bg-[image:url('/hero.jpg')]"
@@ -52,9 +57,12 @@ export const Hero = () => {
               </textPath>
             </text>
           </svg>
-          <div className="absolute inset-6 z-20 rounded-full bg-black/40 border border-white/10 flex items-center justify-center" style={{
-            backdropFilter:"blur(12px)"
-          }}>
+          <div
+            className="absolute inset-6 z-20 rounded-full bg-black/40 border border-white/10 flex items-center justify-center"
+            style={{
+              backdropFilter: "blur(12px)",
+            }}
+          >
             <Gem
               className="w-8 h-8 text-white/70"
               aria-hidden="true"
@@ -64,11 +72,14 @@ export const Hero = () => {
         </div>
       </div>
 
-      <MotionContainer variants={staggerContainerVariants} className="z-20 flex h-full items-start pt-24 pb-10 sm:items-center sm:pt-28 sm:pb-3 md:pt-32">
+      <MotionContainer
+        variants={staggerContainerVariants}
+        className="z-20 flex h-full items-start pt-24 pb-10 sm:items-center sm:pt-20 sm:pb-3"
+      >
         <div className="text-left flex w-full flex-col justify-center max-w-2xl items-center sm:items-start">
           <motion.h1
             variants={staggerItemVariants}
-            className="text-[2.45rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.05] sm:leading-[1.0] mb-6 md:mb-10 tracking-tight select-none text-white text-center sm:text-left uppercase"
+            className="text-[2.45rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.15] mb-6 md:mb-10 tracking-tight select-none text-white text-center sm:text-left uppercase"
           >
             O maior especialista <br className="hidden sm:block" />
             de <span className="font-medium"> semijoias do Brasil </span>
@@ -78,7 +89,7 @@ export const Hero = () => {
 
           <motion.p
             variants={staggerItemVariants}
-            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed sm:leading-tight font-regular select-none text-center sm:text-left mx-auto sm:mx-0"
+            className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed  font-regular select-none text-center sm:text-left mx-auto sm:mx-0"
           >
             Aumente sua margem de lucro em até{" "}
             <span className="text-white font-medium">75%</span>. Adquira peças
@@ -95,9 +106,12 @@ export const Hero = () => {
             className="flex flex-col items-center sm:items-start gap-6 sm:gap-8 w-full"
           >
             <div className="hidden sm:flex flex-wrap items-center justify-center sm:justify-start gap-2 text-sm text-zinc-300 max-w-xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2" style={{
-                backdropFilter:"blur(5px)"
-              }}>
+              <div
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2"
+                style={{
+                  backdropFilter: "blur(5px)",
+                }}
+              >
                 <CheckCircle2 className="w-4 h-4 text-white/90" />
                 <p className="leading-relaxed">
                   Inscreva-se agora e participe do nosso{" "}
@@ -107,9 +121,12 @@ export const Hero = () => {
                   .
                 </p>
               </div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2" style={{
-                backdropFilter:"blur(5px)"
-              }}>
+              <div
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2"
+                style={{
+                  backdropFilter: "blur(5px)",
+                }}
+              >
                 <Sparkles className="w-4 h-4 text-white/90" />
                 <p className="leading-relaxed">
                   <span className="text-white font-medium">+ de 10 mil</span>{" "}

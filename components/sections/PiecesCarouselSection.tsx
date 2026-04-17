@@ -4,7 +4,12 @@ import React, { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
+import {
+  AnimatedSection,
+  MotionContainer,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "@/components/ui/Section";
 import { XingyuBackground } from "@/components/ui/XingyuBackground";
 
 type Piece = {
@@ -16,13 +21,13 @@ type Piece = {
 export const PiecesCarouselSection = () => {
   const pieces = useMemo<Piece[]>(
     () => [
-      { id: "piece-1", title: "Xingyu E1", imageSrc: "/background2.png" },
-      { id: "piece-2", title: "Xingyu E2", imageSrc: "/imgE1.png" },
-      { id: "piece-3", title: "Xingyu E3", imageSrc: "/imgE2.png" },
-      { id: "piece-4", title: "Xingyu E4", imageSrc: "/background.png" },
-      { id: "piece-5", title: "Xingyu E5", imageSrc: "/imgE3.png" },
+      { id: "piece-1", title: "1", imageSrc: "/p1.webp" },
+      { id: "piece-2", title: "2", imageSrc: "/p3.webp" },
+      { id: "piece-3", title: "3", imageSrc: "/p2.webp" },
+      { id: "piece-4", title: "4", imageSrc: "/p4.webp" },
+      { id: "piece-5", title: "5", imageSrc: "/p5.webp" },
     ],
-    []
+    [],
   );
 
   const scrollerRef = useRef<HTMLDivElement | null>(null);
@@ -108,7 +113,8 @@ export const PiecesCarouselSection = () => {
     const dx = event.clientX - lastMoveXRef.current;
     const velocityX = dx / dt;
     const velocityScroll = -velocityX;
-    velocityScrollRef.current = velocityScrollRef.current * 0.8 + velocityScroll * 0.2;
+    velocityScrollRef.current =
+      velocityScrollRef.current * 0.8 + velocityScroll * 0.2;
     lastMoveXRef.current = event.clientX;
     lastMoveTimeRef.current = now;
   };
@@ -124,7 +130,8 @@ export const PiecesCarouselSection = () => {
 
     const startVelocity = velocityScrollRef.current;
     if (Math.abs(startVelocity) < 0.02) return;
-    if (inertiaRafRef.current != null) cancelAnimationFrame(inertiaRafRef.current);
+    if (inertiaRafRef.current != null)
+      cancelAnimationFrame(inertiaRafRef.current);
 
     let velocity = startVelocity;
     let lastTime = performance.now();
@@ -159,23 +166,41 @@ export const PiecesCarouselSection = () => {
   };
 
   return (
-    <AnimatedSection id="pieces" className="relative overflow-hidden bg-[#0b0d0e] text-white">
-      <XingyuBackground variant="section" imageSrc="/bg1.png" imageOpacity={0.18} />
+    <AnimatedSection
+      id="pieces"
+      className="relative overflow-hidden bg-[#0b0d0e] text-white"
+    >
+      <XingyuBackground
+        variant="section"
+        imageSrc="/bg1.png"
+        imageOpacity={0.18}
+      />
 
-      <MotionContainer variants={staggerContainerVariants} className="space-y-12">
+      <MotionContainer
+        variants={staggerContainerVariants}
+        className="space-y-12"
+      >
         <motion.div
           variants={staggerItemVariants}
           className="mx-auto max-w-4xl text-center sm:mx-0 sm:text-left"
         >
           <div className="inline-flex items-center justify-center gap-4 mb-6 sm:justify-start">
-            <span aria-hidden="true" className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-            <span className="text-[0.62rem] uppercase tracking-[0.42em] text-zinc-300">Carrossel de Peças</span>
+            <span
+              aria-hidden="true"
+              className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent"
+            />
+            <span className="text-[0.62rem] uppercase tracking-[0.42em] text-zinc-300">
+              Carrossel de Peças
+            </span>
           </div>
           <h2 className="text-4xl font-regular leading-[1.08] tracking-tight">
-            E não para por aí, nesta live você terá acesso <br className="hidden md:block" />
-            a descontos ao vivo em nosso evento
+            E não para por aí, nesta live você terá acesso{" "}
+            <br className="hidden md:block" />a descontos ao vivo em nosso
+            evento
           </h2>
-          <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-tight font-regular select-none mx-auto sm:mx-0">Conheça algumas de nossas peças.</p>
+          <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-tight font-regular select-none mx-auto sm:mx-0">
+            Conheça algumas de nossas peças.
+          </p>
         </motion.div>
 
         <motion.div variants={staggerItemVariants} className="relative">
@@ -223,17 +248,23 @@ export const PiecesCarouselSection = () => {
                       src={piece.imageSrc}
                       alt={piece.title}
                       fill
-                      className="object-cover opacity-55 contrast-110 brightness-90"
+                      className="object-cover contrast-110 brightness-90"
                       priority={false}
                       draggable={false}
                     />
-                    <div aria-hidden="true" className="absolute inset-0 bg-black/40" />               
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-black/50"
+                    />
                   </div>
 
                   <div className="absolute inset-x-0 bottom-0 p-6">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-zinc-100 border border-white/10"style={{
-  backdropFilter: "blur(12px)"
-}}>
+                    <div
+                      className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-zinc-100 border border-white/10"
+                      style={{
+                        backdropFilter: "blur(12px)",
+                      }}
+                    >
                       {piece.title}
                     </div>
                   </div>
