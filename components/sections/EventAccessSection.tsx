@@ -59,7 +59,7 @@ export const EventAccessSection = () => {
           <div className="inline-flex items-center justify-center gap-4 sm:justify-start">
             <span
               aria-hidden="true"
-              className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent"
+              className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent hidden md:flex"
             />
             <span className="text-[0.62rem] uppercase tracking-[0.42em] text-zinc-300">
               Acesso Exclusivo

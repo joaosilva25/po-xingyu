@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -29,140 +30,22 @@ export const PiecesCarouselSection = () => {
     ],
     [],
   );
-
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const isDraggingRef = useRef(false);
-  const dragStartXRef = useRef(0);
-  const dragStartScrollLeftRef = useRef(0);
-  const dragTargetScrollLeftRef = useRef(0);
-  const dragRafRef = useRef<number | null>(null);
-  const inertiaRafRef = useRef<number | null>(null);
-  const lastMoveXRef = useRef(0);
-  const lastMoveTimeRef = useRef(0);
-  const velocityScrollRef = useRef(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    startIndex: 0,
+    align: "start",
+    duration: 28,
+  });
 
   const scrollByCards = (direction: "prev" | "next") => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
+    if (!emblaApi) return;
 
-    const firstCard = scroller.querySelector<HTMLElement>("[data-piece-card]");
-    const cardWidth = firstCard?.offsetWidth ?? 320;
-    const gap = 24;
-    const amount = (cardWidth + gap) * (direction === "next" ? 1 : -1);
-
-    scroller.scrollBy({ left: amount, behavior: "smooth" });
-  };
-
-  const onPointerDown: React.PointerEventHandler<HTMLDivElement> = (event) => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-    if (event.pointerType !== "mouse") return;
-    if (event.button !== 0) return;
-
-    if (inertiaRafRef.current != null) {
-      cancelAnimationFrame(inertiaRafRef.current);
-      inertiaRafRef.current = null;
+    if (direction === "next") {
+      emblaApi.scrollNext();
+      return;
     }
 
-    isDraggingRef.current = true;
-    setIsDragging(true);
-    dragStartXRef.current = event.clientX;
-    dragStartScrollLeftRef.current = scroller.scrollLeft;
-    dragTargetScrollLeftRef.current = scroller.scrollLeft;
-    lastMoveXRef.current = event.clientX;
-    lastMoveTimeRef.current = performance.now();
-    velocityScrollRef.current = 0;
-    scroller.setPointerCapture(event.pointerId);
-
-    if (dragRafRef.current == null) {
-      const tick = () => {
-        const s = scrollerRef.current;
-        if (!s) {
-          dragRafRef.current = null;
-          return;
-        }
-
-        if (!isDraggingRef.current) {
-          dragRafRef.current = null;
-          return;
-        }
-
-        const current = s.scrollLeft;
-        const target = dragTargetScrollLeftRef.current;
-        s.scrollLeft = current + (target - current) * 0.35;
-        dragRafRef.current = requestAnimationFrame(tick);
-      };
-
-      dragRafRef.current = requestAnimationFrame(tick);
-    }
-  };
-
-  const onPointerMove: React.PointerEventHandler<HTMLDivElement> = (event) => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-    if (!isDraggingRef.current) return;
-    if (event.pointerType !== "mouse") return;
-
-    event.preventDefault();
-    const delta = event.clientX - dragStartXRef.current;
-    dragTargetScrollLeftRef.current = dragStartScrollLeftRef.current - delta;
-
-    const now = performance.now();
-    const dt = Math.max(1, now - lastMoveTimeRef.current);
-    const dx = event.clientX - lastMoveXRef.current;
-    const velocityX = dx / dt;
-    const velocityScroll = -velocityX;
-    velocityScrollRef.current =
-      velocityScrollRef.current * 0.8 + velocityScroll * 0.2;
-    lastMoveXRef.current = event.clientX;
-    lastMoveTimeRef.current = now;
-  };
-
-  const endDrag: React.PointerEventHandler<HTMLDivElement> = (event) => {
-    if (event.pointerType !== "mouse") return;
-    if (!isDraggingRef.current) return;
-    isDraggingRef.current = false;
-    setIsDragging(false);
-
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    const startVelocity = velocityScrollRef.current;
-    if (Math.abs(startVelocity) < 0.02) return;
-    if (inertiaRafRef.current != null)
-      cancelAnimationFrame(inertiaRafRef.current);
-
-    let velocity = startVelocity;
-    let lastTime = performance.now();
-
-    const tick = () => {
-      const s = scrollerRef.current;
-      if (!s) {
-        inertiaRafRef.current = null;
-        return;
-      }
-      if (isDraggingRef.current) {
-        inertiaRafRef.current = null;
-        return;
-      }
-
-      const now = performance.now();
-      const dt = Math.min(40, Math.max(8, now - lastTime));
-      lastTime = now;
-
-      s.scrollLeft += velocity * dt;
-      velocity *= 0.94;
-
-      if (Math.abs(velocity) < 0.02) {
-        inertiaRafRef.current = null;
-        return;
-      }
-
-      inertiaRafRef.current = requestAnimationFrame(tick);
-    };
-
-    inertiaRafRef.current = requestAnimationFrame(tick);
+    emblaApi.scrollPrev();
   };
 
   return (
@@ -187,7 +70,7 @@ export const PiecesCarouselSection = () => {
           <div className="inline-flex items-center justify-center gap-4 mb-6 sm:justify-start">
             <span
               aria-hidden="true"
-              className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent"
+              className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent hidden md:flex"
             />
             <span className="text-[0.62rem] uppercase tracking-[0.42em] text-zinc-300">
               Carrossel de Peças
@@ -210,7 +93,7 @@ export const PiecesCarouselSection = () => {
                 type="button"
                 aria-label="Anterior"
                 onClick={() => scrollByCards("prev")}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/45 text-white/90 backdrop-blur-xl shadow-[0_16px_40px_-24px_rgba(0,0,0,0.7)] transition-all duration-300 hover:bg-white hover:text-zinc-900"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/45 text-white/90 backdrop-blur-xl shadow-[0_16px_40px_-24px_rgba(0,0,0,0.7)] transition-all duration-300 hover:bg-white hover:text-zinc-900 cursor-pointer"
               >
                 <ChevronLeft className="h-5 w-5" strokeWidth={1.8} />
               </button>
@@ -218,7 +101,7 @@ export const PiecesCarouselSection = () => {
                 type="button"
                 aria-label="Próximo"
                 onClick={() => scrollByCards("next")}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/45 text-white/90 backdrop-blur-xl shadow-[0_16px_40px_-24px_rgba(0,0,0,0.7)] transition-all duration-300 hover:bg-white hover:text-zinc-900"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/45 text-white/90 backdrop-blur-xl shadow-[0_16px_40px_-24px_rgba(0,0,0,0.7)] transition-all duration-300 hover:bg-white hover:text-zinc-900 cursor-pointer"
               >
                 <ChevronRight className="h-5 w-5" strokeWidth={1.8} />
               </button>
@@ -226,50 +109,46 @@ export const PiecesCarouselSection = () => {
 
             <motion.div
               variants={staggerContainerVariants}
-              ref={scrollerRef}
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={endDrag}
-              onPointerCancel={endDrag}
-              className={`no-scrollbar flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-px-6 md:scroll-px-12 select-none ${
-                isDragging ? "cursor-grabbing" : "cursor-grab"
-              }`}
-              style={{ touchAction: "pan-y" }}
+              className="overflow-hidden"
+              ref={emblaRef}
             >
-              {pieces.map((piece) => (
-                <motion.article
-                  key={piece.id}
-                  data-piece-card
-                  variants={staggerItemVariants}
-                  className="relative flex-none w-[260px] sm:w-[300px] md:w-[340px] snap-center overflow-hidden rounded-[2.3rem] border border-white/10 bg-black/30 backdrop-blur-2xl shadow-[0_0_60px_-45px_rgba(255,255,255,0.08)]"
-                >
-                  <div className="relative aspect-[4/5] w-full">
-                    <Image
-                      src={piece.imageSrc}
-                      alt={piece.title}
-                      fill
-                      className="object-cover contrast-110 brightness-90"
-                      priority={false}
-                      draggable={false}
-                    />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-black/50"
-                    />
-                  </div>
+              <div className="flex touch-pan-y select-none">
+                {pieces.map((piece) => (
+                  <motion.article
+                    key={piece.id}
+                    variants={staggerItemVariants}
+                    className="relative min-w-0 flex-[0_0_78%] mr-6 sm:flex-[0_0_300px] md:flex-[0_0_340px]"
+                  >
+                    <div className="relative overflow-hidden rounded-[2.3rem] border border-white/10 bg-black/30 backdrop-blur-2xl shadow-[0_0_60px_-45px_rgba(255,255,255,0.08)]">
+                      <div className="relative aspect-[4/5] w-full">
+                        <Image
+                          src={piece.imageSrc}
+                          alt={piece.title}
+                          fill
+                          className="object-cover contrast-110 brightness-90"
+                          priority={false}
+                          draggable={false}
+                        />
+                        <div
+                          aria-hidden="true"
+                          className="absolute inset-0 bg-black/50"
+                        />
+                      </div>
 
-                  <div className="absolute inset-x-0 bottom-0 p-6">
-                    <div
-                      className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-zinc-100 border border-white/10"
-                      style={{
-                        backdropFilter: "blur(12px)",
-                      }}
-                    >
-                      {piece.title}
+                      <div className="absolute inset-x-0 bottom-0 p-6">
+                        <div
+                          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-zinc-100"
+                          style={{
+                            backdropFilter: "blur(12px)",
+                          }}
+                        >
+                          {piece.title}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </motion.article>
-              ))}
+                  </motion.article>
+                ))}
+              </div>
             </motion.div>
 
             <p className="mt-5 text-[10px] text-zinc-400 uppercase tracking-[0.28em]">

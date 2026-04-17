@@ -4,22 +4,42 @@ import { motion } from "framer-motion";
 import { Gem } from "lucide-react";
 import { FaYoutube } from "react-icons/fa";
 import { Button } from "@/components/ui/Button";
-import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
+import {
+  AnimatedSection,
+  MotionContainer,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "@/components/ui/Section";
 import { XingyuBackground } from "@/components/ui/XingyuBackground";
 
 export const OnlineFreeEventSection = () => {
   return (
-    <AnimatedSection id="ao-vivo" className="relative overflow-hidden bg-[#0b0d0e] text-white">
-      <XingyuBackground variant="section" imageSrc="/bg1.png" imageOpacity={0.18} />
+    <AnimatedSection
+      id="ao-vivo"
+      className="relative overflow-hidden bg-[#0b0d0e] text-white"
+    >
+      <XingyuBackground
+        variant="section"
+        imageSrc="/bg1.png"
+        imageOpacity={0.18}
+      />
 
-      <MotionContainer variants={staggerContainerVariants} className="grid gap-14 lg:grid-cols-2 lg:items-center">
+      <MotionContainer
+        variants={staggerContainerVariants}
+        className="grid gap-14 lg:grid-cols-2 lg:items-center"
+      >
         <motion.div
           variants={staggerItemVariants}
           className="mx-auto max-w-2xl text-center sm:mx-0 sm:text-left"
         >
           <div className="inline-flex items-center justify-center gap-4 sm:justify-start">
-            <span aria-hidden="true" className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-            <span className="text-[0.62rem] uppercase tracking-[0.42em] text-zinc-300">Evento Ao Vivo</span>
+            <span
+              aria-hidden="true"
+              className="h-px w-12 bg-gradient-to-r from-transparent via-white/35 to-transparent hidden md:flex"
+            />
+            <span className="text-[0.62rem] uppercase tracking-[0.42em] text-zinc-300">
+              Evento Ao Vivo
+            </span>
           </div>
 
           <h2 className="mt-5 text-4xl font-regular leading-[1.0] tracking-tight select-none text-white">
@@ -27,7 +47,8 @@ export const OnlineFreeEventSection = () => {
           </h2>
 
           <p className="text-xl md:text-xl text-zinc-300 max-w-xl mt-8 leading-tight font-regular select-none mx-auto sm:mx-0">
-            Faremos nossa live através de um evento gratuito no Youtube, fácil assim, você vai perder?
+            Faremos nossa live através de um evento gratuito no Youtube, fácil
+            assim, você vai perder?
           </p>
 
           <div className="mt-11">
@@ -35,9 +56,17 @@ export const OnlineFreeEventSection = () => {
               size="lg"
               variant="primary"
               className="group bg-white/90 hover:bg-white text-zinc-950"
-              onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("cta")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
-              <Gem className="w-5 h-5 opacity-80" aria-hidden="true" strokeWidth={1.3} />
+              <Gem
+                className="w-5 h-5 opacity-80"
+                aria-hidden="true"
+                strokeWidth={1.3}
+              />
               GARANTIR VAGA
             </Button>
           </div>
