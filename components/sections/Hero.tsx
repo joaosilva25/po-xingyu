@@ -79,7 +79,7 @@ export const Hero = () => {
         <div className="text-left flex w-full flex-col justify-center max-w-2xl items-center sm:items-start">
           <motion.h1
             variants={staggerItemVariants}
-            className="text-[2.45rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.15] mb-6 md:mb-10 tracking-tight select-none text-white text-center sm:text-left uppercase"
+            className="text-[2.45rem] sm:text-5xl 2xl:text-6xl font-light leading-[1.15] mb-6 md:mb-8 tracking-tight select-none text-white text-center sm:text-left "
           >
             O maior especialista <br className="hidden sm:block" />
             de <span className="font-medium"> semijoias do Brasil </span>
