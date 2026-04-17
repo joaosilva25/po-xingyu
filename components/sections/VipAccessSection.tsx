@@ -23,7 +23,7 @@ export const VipAccessSection = () => {
       >
         <motion.div
           variants={staggerItemVariants}
-          className="relative overflow-hidden rounded-[1.6rem] border border-white/5 bg-black px-4 py-22 md:px-24 flex"
+          className="relative overflow-hidden rounded-[1.6rem] border border-white/5 bg-black px-5 py-22 md:px-24 flex"
         >
           <Image
             src="/bg3.png"
