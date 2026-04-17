@@ -19,7 +19,7 @@ export const VipAccessSection = () => {
             alt=""
             fill
             sizes="(max-width: 868px) 100vw, 64rem"
-            className="object-cover opacity-55 grayscale contrast-110 brightness-90"
+            className="object-cover opacity-55 contrast-110 brightness-90"
             priority={false}
             draggable={false}
           />

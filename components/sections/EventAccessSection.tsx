@@ -81,7 +81,7 @@ export const EventAccessSection = () => {
                 src={image}
                 alt={title}
                 fill
-                className="object-cover opacity-55 grayscale contrast-110 brightness-90"
+                className="object-cover opacity-55 contrast-110 brightness-90"
               />
               <div
                 aria-hidden="true"
