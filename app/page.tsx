@@ -6,9 +6,11 @@ import { HighlightsBar } from "@/components/sections/HighlightsBar";
 import { EventAccessSection } from "@/components/sections/EventAccessSection";
 import { OnlineFreeEventSection } from "@/components/sections/OnlineFreeEventSection";
 import { EventSection } from "@/components/sections/EventSection";
+import { ResaleBenefitsSection } from "@/components/sections/ResaleBenefitsSection";
 import { BonusSection } from "@/components/sections/BonusSection";
 import { PiecesCarouselSection } from "@/components/sections/PiecesCarouselSection";
 import { MentorSection } from "@/components/sections/MentorSection";
+import { VipAccessSection } from "@/components/sections/VipAccessSection";
 import { Footer } from "@/components/sections/Footer";
 import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
 
@@ -53,6 +55,8 @@ export default function Home() {
           <MentorSection />
           <PiecesCarouselSection />
           <BonusSection />
+          <ResaleBenefitsSection />
+          <VipAccessSection />
         </main>
 
         <Footer />

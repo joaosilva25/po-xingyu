@@ -161,7 +161,7 @@ export const PiecesCarouselSection = () => {
 
   return (
     <Section id="pieces" className="relative overflow-hidden bg-[#0b0d0e] text-white">
-      <XingyuBackground variant="section" imageSrc="/background4.png" imageOpacity={0.14} className="opacity-60" />
+      <XingyuBackground variant="section" imageSrc="/bg1.png" imageOpacity={0.14} className="opacity-60" />
 
       <Container className="space-y-12">
         <motion.div
@@ -231,16 +231,19 @@ export const PiecesCarouselSection = () => {
                       src={piece.imageSrc}
                       alt={piece.title}
                       fill
-                      className="object-cover"
+                      className="object-cover opacity-55 grayscale contrast-110 brightness-90"
                       priority={false}
                       draggable={false}
                     />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.10)_0%,transparent_65%)]" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/75" />
+                    <div aria-hidden="true" className="absolute inset-0 bg-violet-700/35 mix-blend-multiply" />
+                    <div aria-hidden="true" className="absolute inset-0 bg-black/55" />
+               
                   </div>
 
                   <div className="absolute inset-x-0 bottom-0 p-6">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-black/55 px-4 py-2 text-xs uppercase tracking-[0.28em] text-zinc-100 border border-white/10">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-zinc-100 border border-white/10"style={{
+  backdropFilter: "blur(12px)"
+}}>
                       {piece.title}
                     </div>
                   </div>

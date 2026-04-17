@@ -50,9 +50,8 @@ export const BonusSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.08 }}
-          className="relative mt-16 overflow-hidden rounded-[2.6rem] border border-white/10 bg-[#12161a]/75 p-6 sm:p-8 lg:p-12"
+          className="relative mt-16 overflow-hidden p-6 sm:p-8 lg:p-12"
         >
-          <XingyuBackground variant="section" imageSrc="/background2.png" imageOpacity={0.1} className="opacity-70" />
 
 
           <div className="relative hidden md:block">
@@ -94,7 +93,7 @@ export const BonusSection = () => {
           <Button
             variant="primary"
             size="lg"
-            className="group bg-white/90 hover:bg-white text-zinc-950 border border-white/35 shadow-[0_24px_80px_-40px_rgba(255,255,255,0.55)]"
+            className="group bg-white/90 hover:bg-white text-zinc-950"
             onClick={() => document.getElementById("mentor")?.scrollIntoView({ behavior: "smooth" })}
           >
             <Gem className="w-5 h-5 opacity-80" aria-hidden="true" strokeWidth={1.3} />

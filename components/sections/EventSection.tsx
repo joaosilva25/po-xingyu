@@ -55,7 +55,8 @@ export const EventSection = () => {
         >
           <Button
             size="lg"
-            className="group bg-white/90 hover:bg-white text-zinc-950 border border-white/30 shadow-[0_20px_60px_-30px_rgba(255,255,255,0.35)]"
+            variant="primary"
+            className="group hover:bg-white text-zinc-950"
             onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}
           >
             <Gem className="w-5 h-5 opacity-80" aria-hidden="true" strokeWidth={1.3} />

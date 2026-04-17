@@ -51,7 +51,7 @@ export const Header = () => {
                       .querySelector(link.href)
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="text-[10px] font-regular uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:text-white"
+                  className="text-[10px] font-regular uppercase tracking-[0.2em] text-white/80 transition-colors duration-300 hover:text-white"
                 >
                   {link.label}
                 </a>

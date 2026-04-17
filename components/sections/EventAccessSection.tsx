@@ -11,24 +11,24 @@ const accessItems = [
     title: "As principais novidades de 2026",
     label: "Tendências",
     Icon: Gem,
-    image: "/background2.png",
-    glow: "from-fuchsia-500/50 via-violet-500/35 to-cyan-400/40",
+    image: "/imgE1.png",
+    glow: "from-white/35 via-cyan-500/25 to-violet-500/35",
   },
   {
     title: "Semijoias com até [X]% de desconto no atacado",
     label: "Desconto de Fábrica",
     Icon: BadgePercent,
-    image: "/background3.png",
-    glow: "from-cyan-500/45 via-indigo-500/35 to-fuchsia-500/40",
+    image: "/imgE3.png",
+    glow: "from-cyan-500/35 via-indigo-500/25 to-fuchsia-500/35",
   },
   {
     title: "Aprenda a comprar diretamente com o fornecedor",
     label: "Compra Direta",
     Icon: Factory,
-    image: "/background4.png",
-    glow: "from-emerald-500/40 via-cyan-500/30 to-violet-500/40",
+    image: "/imgE2.png",
+    glow: "from-fuchsia-500/35 via-violet-500/25 to-cyan-400/35",
   },
-];
+] as const;
 
 export const EventAccessSection = () => {
   return (
@@ -38,7 +38,7 @@ export const EventAccessSection = () => {
     >
       <XingyuBackground
         variant="section"
-        imageSrc="/background2.png"
+        imageSrc="/bg1.png"
         imageOpacity={0.16}
         className="opacity-60"
       />
@@ -88,11 +88,15 @@ export const EventAccessSection = () => {
                 src={image}
                 alt={title}
                 fill
-                className="object-cover opacity-[0.60]"
+                className="object-cover opacity-55 grayscale contrast-110 brightness-90"
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-black/20"
+                className="absolute inset-0 bg-violet-700/35 mix-blend-multiply"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-black/70"
               />
 
               <div className="relative flex min-h-[19.5rem] flex-col justify-between p-7 md:p-8">

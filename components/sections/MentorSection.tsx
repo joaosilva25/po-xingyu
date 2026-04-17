@@ -18,7 +18,7 @@ export const MentorSection = () => {
           className="relative order-2 lg:order-1"
         >
           <div className="relative aspect-[1.2/1] w-full overflow-hidden rounded-[2.4rem] border border-white/10 bg-black/25">
-            <Image src="/foto.png" alt="Leo China" fill className="object-cover object-top" priority={false} />
+            <Image src="/Leo.png" alt="Leo China" fill className="object-cover object-top" priority={false} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
           </div>
         </motion.div>

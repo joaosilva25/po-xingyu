@@ -48,13 +48,15 @@ export const Hero = () => {
                 startOffset="50%"
                 textAnchor="middle"
               >
-                A ORDEM EM COMUNIDADE • A ORDEM EM COMUNIDADE •
+                ESPECIALISTA EM SEMIJOAIS • SEMIJOAIS•
               </textPath>
             </text>
           </svg>
-          <div className="absolute inset-4 rounded-full bg-black/65 border border-white/10 flex items-center justify-center">
+          <div className="absolute inset-5 rounded-full bg-white/5 border border-white/10 flex items-center justify-center" style={{
+            backdropFilter:"blur(12px)"
+          }}>
             <Gem
-              className="w-6 h-6 text-white/90"
+              className="w-8 h-8 text-white/70"
               aria-hidden="true"
               strokeWidth={1.3}
             />

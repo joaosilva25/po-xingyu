@@ -36,7 +36,8 @@ export const OnlineFreeEventSection = () => {
           <div className="mt-11">
             <Button
               size="lg"
-              className="group bg-white/90 hover:bg-white text-zinc-950 border border-white/30 shadow-[0_24px_70px_-35px_rgba(255,255,255,0.45)]"
+              variant="primary"
+              className="group bg-white/90 hover:bg-white text-zinc-950"
               onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}
             >
               <Gem className="w-5 h-5 opacity-80" aria-hidden="true" strokeWidth={1.3} />
@@ -52,17 +53,11 @@ export const OnlineFreeEventSection = () => {
           transition={{ duration: 0.9 }}
           className="relative flex justify-center lg:justify-end"
         >
-          <div className="relative w-full max-w-[32rem] aspect-[1.22/1] rounded-[2.4rem] border border-white/10 bg-black/40 overflow-hidden shadow-[0_40px_120px_-55px_rgba(255,255,255,0.28)] backdrop-blur-2xl">
-            <div className="absolute -inset-10 bg-[radial-gradient(circle_at_30%_20%,rgba(236,72,153,0.28)_0%,transparent_55%)]" />
-            <div className="absolute -inset-10 bg-[radial-gradient(circle_at_80%_65%,rgba(59,130,246,0.28)_0%,transparent_58%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(255,255,255,0.12),rgba(255,255,255,0.02)_35%,rgba(0,0,0,0.42))]" />
-
+          <div className="relative w-full max-w-[32rem] aspect-[1.22/1] rounded-[2.4rem] border border-white/5 bg-black/40 overflow-hidden shadow-[0_40px_120px_-55px_rgba(255,255,255,0.28)] backdrop-blur-2xl">
             <div className="absolute inset-0 grid place-items-center">
               <div className="relative">
-                <div className="absolute inset-0 scale-[1.35] rounded-full bg-red-500/25 blur-3xl" />
-                <div className="absolute inset-0 -translate-x-4 translate-y-3 rounded-[2.5rem] bg-black/45 blur-md" />
                 <div className="relative h-44 w-44 md:h-52 md:w-52 rounded-[2.8rem] border border-white/20 bg-gradient-to-br from-white/18 via-white/6 to-black/35 shadow-[inset_0_1px_18px_rgba(255,255,255,0.22),0_24px_70px_-26px_rgba(0,0,0,0.8)] backdrop-blur-xl flex items-center justify-center -rotate-6">
-                  <div className="absolute inset-[12px] rounded-[2.1rem] border border-white/12 bg-black/25" />
+                  <div className="absolute inset-[12px] rounded-[2.1rem] border border-white/5 bg-black/25" />
                   <FaYoutube className="relative h-20 w-20 md:h-24 md:w-24 text-red-500 drop-shadow-[0_10px_24px_rgba(239,68,68,0.55)]" />
                 </div>
               </div>
