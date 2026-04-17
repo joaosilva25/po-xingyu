@@ -14,7 +14,7 @@ export const Hero = () => {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-10 bg-black/80 md:bg-black/55"
+        className="absolute inset-0 z-10 bg-black/75 md:bg-black/55"
       />
       <div
         aria-hidden="true"
