@@ -16,12 +16,12 @@ export const Footer = () => {
         className="pointer-events-none absolute inset-0 bg-black"
       />
       <Container className="py-5 sm:py-6">
-        <div className="flex flex-col items-center gap-3 text-[9px] uppercase tracking-[0.32em] text-zinc-400 sm:flex-row sm:justify-between sm:gap-6">
+        <div className="flex justify-around items-center gap-3 text-[9px] uppercase tracking-[0.32em] text-zinc-400 sm:flex-row sm:justify-between sm:gap-6">
           <p className="text-center sm:text-left">
             © 2026 XingYU
           </p>
 
-          <nav className="flex-wrap items-center text-[9px] justify-center gap-x-3 gap-y-2 sm:justify-end hidden md:flex">
+          <nav className="flex-wrap items-center text-[9px] justify-center gap-x-3 gap-y-2 sm:justify-end flex">
              Todos os direitos reservados
           </nav>
         </div>
