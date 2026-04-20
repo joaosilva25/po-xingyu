@@ -1,30 +1,41 @@
 "use client";
 
+import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { Boxes, Gem, Megaphone, Rocket, TrendingUp } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
+import {
+  AnimatedSection,
+  MotionContainer,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "@/components/ui/Section";
 import Image from "next/image";
 
 const bonusItems = [
   {
     title: "Como aumentar sua margem de lucro comprando na Xingyu.",
-    description: "Aprenda estratégias para comprar melhor e vender com mais previsibilidade.",
+    description:
+      "Aprenda estratégias para comprar melhor e vender com mais previsibilidade.",
     Icon: TrendingUp,
   },
   {
     title: "Como montar kits para vender mais.",
-    description: "Monte combinações que elevam ticket médio e aceleram o giro de estoque.",
+    description:
+      "Monte combinações que elevam ticket médio e aceleram o giro de estoque.",
     Icon: Boxes,
   },
   {
     title: "Como usar produtos para chamar atenção.",
-    description: "Use peças de impacto para atrair olhares e gerar mais interesse imediato.",
+    description:
+      "Use peças de impacto para atrair olhares e gerar mais interesse imediato.",
     Icon: Megaphone,
   },
   {
     title: "Como usar produtos para fazer lançamentos.",
-    description: "Crie lançamentos que aumentam desejo, urgência e taxa de conversão.",
+    description:
+      "Crie lançamentos que aumentam desejo, urgência e taxa de conversão.",
     Icon: Rocket,
   },
 ] as const;
@@ -32,6 +43,30 @@ const bonusItems = [
 export const BonusSection = () => {
   const neonDuration = 3.2;
   const iconNeonDuration = 5.6;
+  const [mobileEmblaRef, mobileEmblaApi] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+  });
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const snapCount = bonusItems.length;
+
+  const handleMobileCarouselSelect = useCallback(() => {
+    if (!mobileEmblaApi) return;
+
+    setSelectedIndex(mobileEmblaApi.selectedScrollSnap());
+  }, [mobileEmblaApi]);
+
+  useEffect(() => {
+    if (!mobileEmblaApi) return;
+
+    mobileEmblaApi.on("select", handleMobileCarouselSelect);
+    mobileEmblaApi.on("reInit", handleMobileCarouselSelect);
+
+    return () => {
+      mobileEmblaApi.off("select", handleMobileCarouselSelect);
+      mobileEmblaApi.off("reInit", handleMobileCarouselSelect);
+    };
+  }, [mobileEmblaApi, handleMobileCarouselSelect]);
 
   return (
     <AnimatedSection id="bonus" className="relative overflow-hidden bg-[#0d0f12] text-white">
@@ -55,9 +90,10 @@ export const BonusSection = () => {
           <h2 className="mt-5 text-4xl font-regular leading-[1.05] tracking-tight text-white">
             Bônus para você
           </h2>
-          <p className="mx-auto mt-7 max-w-3xl text-lg md:text-xl text-zinc-300 leading-tight">
-            Você também terá acesso aos conteúdos estratégicos que separam quem vende
-            por preço de quem vende com margem, posicionamento e previsibilidade.
+          <p className="mx-auto mt-7 max-w-3xl text-lg md:text-xl text-zinc-300 leading-relaxed">
+            Você também terá acesso aos conteúdos estratégicos que separam quem
+            vende por preço de quem vende com margem, posicionamento e
+            previsibilidade.
           </p>
         </motion.div>
 
@@ -78,11 +114,22 @@ export const BonusSection = () => {
               aria-hidden="true"
               className="absolute top-10 z-0 h-[2px] w-20 -translate-y-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-white/0 via-white to-white/0 shadow-[0_0_18px_rgba(255,255,255,0.95)]"
               animate={{ left: ["12.5%", "87.5%"] }}
-              transition={{ duration: neonDuration, ease: "linear", repeat: Infinity }}
+              transition={{
+                duration: neonDuration,
+                ease: "linear",
+                repeat: Infinity,
+              }}
             />
-            <motion.div variants={staggerContainerVariants} className="grid grid-cols-4 gap-8">
+            <motion.div
+              variants={staggerContainerVariants}
+              className="grid grid-cols-4 gap-8"
+            >
               {bonusItems.map(({ title, Icon }, index) => (
-                <motion.article key={title} variants={staggerItemVariants} className="relative z-10 text-center">
+                <motion.article
+                  key={title}
+                  variants={staggerItemVariants}
+                  className="relative z-10 text-center"
+                >
                   <div
                     className="bonusIconNeon relative mx-auto mb-6 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full border border-white/20 bg-black/90 shadow-[0_0_30px_-18px_rgba(255,255,255,0.75)]"
                     style={{
@@ -91,56 +138,111 @@ export const BonusSection = () => {
                       ["--neon-duration" as never]: `${iconNeonDuration}s`,
                     }}
                   >
-                    <span aria-hidden="true" className="absolute inset-0 rounded-full" style={{ backgroundColor: "rgba(13,15,18,0.72)" }} />
-                    <Icon className="relative z-10 h-7 w-7 text-zinc-50" strokeWidth={0.8} />
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-full"
+                      style={{ backgroundColor: "rgba(13,15,18,0.72)" }}
+                    />
+                    <Icon
+                      className="relative z-10 h-7 w-7 text-zinc-50"
+                      strokeWidth={0.8}
+                    />
                   </div>
 
-                  <p className="mt-3 text-sm leading-relaxed text-white">{title}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white">
+                    {title}
+                  </p>
                 </motion.article>
               ))}
             </motion.div>
           </div>
 
-          <motion.ul
-            variants={staggerContainerVariants}
-            className="mx-1 divide-y divide-white/8 overflow-hidden rounded-xl border border-white/8 bg-white/[0.02] text-left md:hidden"
-          >
-            {bonusItems.map(({ title, description, Icon }, index) => (
-              <motion.li
-                key={title}
-                variants={staggerItemVariants}
-                className="flex gap-4 p-6"
-              >
-                <div
-                  className="bonusIconNeon relative mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/8 bg-white/[0.03]"
-                  style={{
-                    ["--neon-delay" as never]: `${(iconNeonDuration / bonusItems.length) * index}s`,
-                    ["--neon-duration" as never]: `${iconNeonDuration}s`,
-                  }}
-                >
-                  <span aria-hidden="true" className="absolute inset-0 rounded-full" style={{ backgroundColor: "rgba(13,15,18,0.5)" }} />
-                  <Icon className="relative z-10 h-5 w-5 text-white/75" strokeWidth={1.6} />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-[0.98rem] font-medium tracking-tight text-white">{title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-zinc-300">{description}</p>
-                </div>
-              </motion.li>
-            ))}
-          </motion.ul>
+          <motion.div variants={staggerContainerVariants} className="md:hidden">
+            <motion.div
+              variants={staggerContainerVariants}
+              className="overflow-hidden"
+              ref={mobileEmblaRef}
+            >
+              <div className="flex touch-pan-y">
+                {bonusItems.map(({ title, description, Icon }, index) => (
+                  <motion.article
+                    key={title}
+                    variants={staggerItemVariants}
+                    className="mr-4 min-w-0 flex-[0_0_86%]"
+                  >
+                    <div className="relative overflow-hidden rounded-[2rem] border border-white/8 bg-white/[0.02] px-6 py-7 shadow-[0_45px_120px_-95px_rgba(0,0,0,1)]">
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_52%)]"
+                      />
+                      <div className="relative flex min-h-[18rem] flex-col">
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-[0.62rem] uppercase tracking-[0.36em] text-zinc-200">
+                            Bônus {String(index + 1).padStart(2, "0")}
+                          </span>
+                          <div
+                            className="bonusIconNeon relative flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03]"
+                            style={{
+                              ["--neon-delay" as never]: `${(iconNeonDuration / bonusItems.length) * index}s`,
+                              ["--neon-duration" as never]: `${iconNeonDuration}s`,
+                              backdropFilter: "blur(10px)",
+                            }}
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-0 rounded-full"
+                              style={{ backgroundColor: "rgba(13,15,18,0.5)" }}
+                            />
+                            <Icon
+                              className="relative z-10 h-[1.05rem] w-[1.05rem] text-zinc-200"
+                              strokeWidth={1.4}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="mt-8 flex-1">
+                          <h3 className="max-w-[15rem] text-[1.4rem] font-light leading-[1.08] tracking-tight text-white">
+                            {title}
+                          </h3>
+                          <p className="mt-4 max-w-[16rem] text-[0.95rem] leading-relaxed text-zinc-300">
+                            {description}
+                          </p>
+                        </div>
+
+                        <div className="mt-8 flex items-center gap-3">
+                          <span className="h-px flex-1 bg-white/10" />
+                          <span className="text-[0.62rem] uppercase tracking-[0.32em] text-zinc-500">
+                            Extra
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         <motion.div
           variants={staggerItemVariants}
-          className="mt-12 flex justify-center"
+          className="mt-8 flex justify-center"
         >
           <Button
             variant="primary"
             size="lg"
             className="group bg-white/90 hover:bg-white text-zinc-950"
-            onClick={() => document.getElementById("mentor")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              document
+                .getElementById("mentor")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
-            <Gem className="w-5 h-5 opacity-80" aria-hidden="true" strokeWidth={1.3} />
+            <Gem
+              className="w-5 h-5 opacity-80"
+              aria-hidden="true"
+              strokeWidth={1.3}
+            />
             GARANTIR VAGA
           </Button>
         </motion.div>
