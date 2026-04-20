@@ -20,7 +20,7 @@ export const VipAccessSection = () => {
                 src="/imgE3.png"
                 alt=""
                 fill
-                className="object-cover opacity-[0.03]"
+                className="object-cover opacity-[0.035]"
                 priority={false}
                 style={{
                   filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
