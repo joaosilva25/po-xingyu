@@ -39,7 +39,8 @@ export const MentorSection = () => {
               autoPlay
               loop
               muted
-              className="object-cover grayscale opacity-30"
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover grayscale opacity-30"
               style={{
                 filter: "saturate(1.5) contrast(1.05) brightness(1.00)",
               }}
