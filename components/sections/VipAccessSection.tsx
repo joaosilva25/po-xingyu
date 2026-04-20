@@ -9,6 +9,19 @@ import { Gem } from "lucide-react";
 export const VipAccessSection = () => {
   return (
     <AnimatedSection id="cta" className="relative overflow-hidden bg-[#0b0d0e] text-white">
+         {/* Imagem de fundo opaca */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/imgE3.png"
+                alt=""
+                fill
+                className="object-cover opacity-[0.03]"
+                priority={false}
+                style={{
+                  filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
+                }}
+              />
+            </div>
       <MotionContainer variants={staggerContainerVariants} className="space-y-8">
         <motion.div
           variants={staggerItemVariants}

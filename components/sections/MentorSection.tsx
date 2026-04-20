@@ -9,7 +9,20 @@ import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItem
 export const MentorSection = () => {
   return (
     <AnimatedSection id="mentor" className="relative overflow-hidden bg-[#0b0d0e] text-white">
-      <MotionContainer variants={staggerContainerVariants} className="grid gap-14 lg:grid-cols-2 lg:items-center">
+      {/* Imagem de fundo opaca */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/imgE3.png"
+          alt=""
+          fill
+          className="object-cover opacity-[0.03]"
+          priority={false}
+          style={{
+            filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
+          }}
+        />
+      </div>
+      <MotionContainer variants={staggerContainerVariants} className="relative z-10 grid gap-14 lg:grid-cols-2 lg:items-center">
         <motion.div
           variants={staggerItemVariants}
           className="relative order-2 lg:order-1"

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Boxes, Gem, Megaphone, Rocket, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
+import Image from "next/image";
 
 const bonusItems = [
   {
@@ -34,6 +35,18 @@ export const BonusSection = () => {
 
   return (
     <AnimatedSection id="bonus" className="relative overflow-hidden bg-[#0d0f12] text-white">
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src="/imgE3.png"
+                      alt=""
+                      fill
+                      className="object-cover opacity-[0.03]"
+                      priority={false}
+                      style={{
+                        filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
+                      }}
+                    />
+                  </div>
       <MotionContainer variants={staggerContainerVariants}>
         <motion.div
           variants={staggerItemVariants}

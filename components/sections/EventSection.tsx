@@ -4,10 +4,24 @@ import { motion } from "framer-motion";
 import { Gem } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
+import Image from "next/image";
 
 export const EventSection = () => {
   return (
     <AnimatedSection id="benefits" className="relative overflow-hidden bg-[#0b0d0e] text-white">
+        {/* Imagem de fundo opaca */}
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src="/imgE3.png"
+                      alt=""
+                      fill
+                      className="object-cover opacity-[0.03]"
+                      priority={false}
+                      style={{
+                        filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
+                      }}
+                    />
+                  </div>
       <MotionContainer variants={staggerContainerVariants} className="flex flex-col items-center gap-12">
         <motion.h2
           variants={staggerItemVariants}
