@@ -32,15 +32,27 @@ export const MentorSection = () => {
           variants={staggerItemVariants}
           className="relative order-2 lg:order-1"
         >
-          <div className="relative aspect-[1.2/1] w-full overflow-hidden rounded-[2.4rem] border border-white/10 bg-black/25">
+          <div className="relative aspect-[1.2/1] w-full overflow-hidden rounded-[2.4rem] border border-white/10">
+            {/* Imagem de fundo do container */}
+            <video
+              src="/videobg.mp4"
+              autoPlay
+              loop
+              muted
+              className="object-cover grayscale opacity-30"
+              style={{
+                filter: "saturate(1.5) contrast(1.05) brightness(1.00)",
+              }}
+            />
+            {/* Imagem do Leo China */}
             <Image
               src="/LeoChina.png"
               alt="Leo China"
               fill
-              className="object-cover object-top"
+              className="object-cover object-top relative z-10 pt-4"
               priority={false}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent z-20" />
           </div>
         </motion.div>
 
