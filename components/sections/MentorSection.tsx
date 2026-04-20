@@ -32,7 +32,7 @@ export const MentorSection = () => {
           variants={staggerItemVariants}
           className="relative order-2 lg:order-1"
         >
-          <div className="relative aspect-[1.2/1] w-full overflow-hidden rounded-[2.4rem] border border-white/10">
+          <div className="relative aspect-[1.2/1] w-full overflow-hidden rounded-[2.5rem] border border-white/5">
             {/* Imagem de fundo do container */}
             <video
               src="/videobg.mp4"
