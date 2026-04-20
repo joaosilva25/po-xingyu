@@ -29,7 +29,7 @@ export const PiecesCarouselSection = () => {
       { id: "piece-6", title: "6", imageSrc: "/p6.webp" },
       { id: "piece-5", title: "5", imageSrc: "/p5.webp" },
       { id: "piece-7", title: "7", imageSrc: "/p7.webp" },
-      { id: "piece-8", title: "8", imageSrc: "/p8.jpg" },
+      { id: "piece-8", title: "8", imageSrc: "/p8.webp" },
     ],
     [],
   );
