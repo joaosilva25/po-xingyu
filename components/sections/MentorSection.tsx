@@ -20,7 +20,7 @@ export const MentorSection = () => {
           src="/imgE3.png"
           alt=""
           fill
-          className="object-cover opacity-[0.035]"
+          className="object-cover opacity-[0.015]"
           priority={false}
           style={{
             filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
@@ -32,19 +32,17 @@ export const MentorSection = () => {
           variants={staggerItemVariants}
           className="relative order-2 lg:order-1"
         >
-          <div className="relative aspect-[1.2/1] w-full overflow-hidden rounded-[2.5rem] border border-white/5">
+          <div className="relative aspect-[1.2/1] w-full overflow-hidden rounded-[2.5rem] border border-white/8">
             {/* Imagem de fundo do container */}
-            <video
-              src="/videobg.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 h-full w-full object-cover grayscale opacity-30"
-              style={{
-                filter: "saturate(1.5) contrast(1.05) brightness(1.00)",
-              }}
-            />
+            <Image
+              src="/bg1.png"
+               alt="fundo"
+              fill
+              className="absolute inset-0 h-full w-full object-cover grayscale opacity-25"
+               style={{
+            filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
+          }}
+           />
             {/* Imagem do Leo China */}
             <Image
               src="/LeoChina.png"
@@ -95,11 +93,7 @@ export const MentorSection = () => {
             <Button
               size="lg"
               variant="primary"
-              onClick={() =>
-                document
-                  .getElementById("cta")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
             >
               <Gem
                 className="w-5 h-5 opacity-80"

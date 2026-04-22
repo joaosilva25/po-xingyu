@@ -134,13 +134,13 @@ export const PiecesCarouselSection = () => {
                         />
                         <div
                           aria-hidden="true"
-                          className="absolute inset-0 bg-black/50"
+                          className="absolute inset-0 bg-black/20"
                         />
                       </div>
 
                       <div className="absolute inset-x-0 bottom-0 p-6">
                         <div
-                          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-zinc-100"
+                          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-zinc-100"
                           style={{
                             backdropFilter: "blur(12px)",
                           }}

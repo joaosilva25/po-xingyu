@@ -75,7 +75,7 @@ export const BonusSection = () => {
                       src="/imgE3.png"
                       alt=""
                       fill
-                      className="object-cover opacity-[0.035]"
+                      className="object-cover opacity-[0.015]"
                       priority={false}
                       style={{
                         filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
@@ -232,11 +232,7 @@ export const BonusSection = () => {
             variant="primary"
             size="lg"
             className="group bg-white/90 hover:bg-white text-zinc-950"
-            onClick={() =>
-              document
-                .getElementById("mentor")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
           >
             <Gem
               className="w-5 h-5 opacity-80"

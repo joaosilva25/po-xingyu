@@ -5,8 +5,40 @@ import { Gem } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { AnimatedSection, MotionContainer, staggerContainerVariants, staggerItemVariants } from "@/components/ui/Section";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export const EventSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = containerRef.current;
+
+    if (!video || !container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <AnimatedSection id="benefits" className="relative overflow-hidden bg-[#0b0d0e] text-white">
         {/* Imagem de fundo opaca */}
@@ -32,23 +64,21 @@ export const EventSection = () => {
         </motion.h2>
 
         <motion.div
+          ref={containerRef}
           variants={staggerItemVariants}
           className="relative w-full max-w-5xl"
         >
 
-          <div className="relative aspect-video w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-black/40 backdrop-blur-2xl shadow-[0_0_60px_-45px_rgba(255,255,255,0.08)]">
+          <div className="relative h-[28rem] md:h-[32rem] w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-black/40 backdrop-blur-2xl shadow-[0_0_60px_-45px_rgba(255,255,255,0.08)]">
             <video
-              autoPlay
-              loop
-              muted
+              ref={videoRef}
               playsInline
               preload="metadata"
-              className="absolute inset-0 w-full h-full object-cover"
+              controls={true}
+              className="absolute inset-0 w-full h-full object-cover md:object-contain bg-black"
             >
-              <source src="/video3.mp4" type="video/mp4" />
+              <source src="/leoVideo.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,transparent_65%)]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
           </div>
         </motion.div>
 
@@ -60,7 +90,7 @@ export const EventSection = () => {
             size="lg"
             variant="primary"
             className="group hover:bg-white text-zinc-950"
-            onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}
+            href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
           >
             <Gem className="w-5 h-5 opacity-80" aria-hidden="true" strokeWidth={1.3} />
             GARANTIR VAGA

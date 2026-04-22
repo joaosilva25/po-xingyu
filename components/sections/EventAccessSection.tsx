@@ -21,7 +21,7 @@ const accessItems = [
     glow: "from-white/35 via-cyan-500/25 to-violet-500/35",
   },
   {
-    title: "Semijoias com até [X]% de desconto no atacado",
+    title: "Semijoias com até 53% de desconto no atacado",
     label: "Desconto de Fábrica",
     Icon: BadgePercent,
     image: "/imgE3.png",
@@ -65,7 +65,7 @@ const AccessCard = ({ title, image, glow }: (typeof accessItems)[number]) => {
         <div className="flex items-start justify-end gap-8"></div>
 
         <div>
-          <p className="max-w-[20rem] text-[1.15rem] md:text-[1.22rem] leading-snug text-white font-light tracking-tight text-center md:text-left">
+          <p className="max-w-[23rem] text-[1.15rem] md:text-[1.22rem] leading-snug text-white font-light tracking-tight text-center md:text-left">
             {title}
           </p>
           <div

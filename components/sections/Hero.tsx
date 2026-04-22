@@ -144,7 +144,11 @@ export const Hero = () => {
               </div>
             </div>
             <div className="px-4 md:px-0">
-              <Button size="lg" className="w-full md:w-auto group">
+              <Button
+                size="lg"
+                className="w-full md:w-auto group"
+                href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
+              >
                 <Gem
                   className="w-5 h-5 opacity-80"
                   aria-hidden="true"

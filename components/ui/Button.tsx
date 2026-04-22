@@ -4,17 +4,22 @@ import { motion, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface ButtonProps extends HTMLMotionProps<"button"> {
+interface ButtonBaseProps {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "outline" | "dark";
   size?: "sm" | "md" | "lg" | "xl";
+  href?: string;
 }
+
+type ButtonProps = ButtonBaseProps &
+  (HTMLMotionProps<"button"> | HTMLMotionProps<"a">);
 
 export const Button = ({
   children,
   className,
   variant = "primary",
   size = "lg",
+  href,
   ...props
 }: ButtonProps) => {
   const variants = {
@@ -31,24 +36,46 @@ export const Button = ({
     xl: "px-12 py-5 md:py-6 text-base",
   };
 
+  const baseClassName = cn(
+    "relative inline-flex items-center justify-center gap-3 rounded-2xl font-medium uppercase tracking-[0.2em] transition-all cursor-pointer duration-500 overflow-hidden group",
+    variants[variant],
+    sizes[size],
+    className
+  );
+
+  const content = (
+    <>
+      <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <span className="relative z-10 flex items-center gap-3">
+        {children}
+      </span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className={baseClassName}
+        {...(props as HTMLMotionProps<"a">)}
+      >
+        {content}
+      </motion.a>
+    );
+  }
+
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className={cn(
-        "relative inline-flex items-center justify-center gap-3 rounded-2xl font-medium uppercase tracking-[0.2em] transition-all cursor-pointer duration-500 overflow-hidden group",
-        variants[variant],
-        sizes[size],
-        className
-      )}
-      {...props}
+      className={baseClassName}
+      {...(props as HTMLMotionProps<"button">)}
     >
-      {/* Subtle inner gradient for elegance */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-      
-      <span className="relative z-10 flex items-center gap-3">
-        {children}
-      </span>
+      {content}
     </motion.button>
   );
 };
