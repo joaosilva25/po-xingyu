@@ -77,7 +77,7 @@ export const EventSection = () => {
               controls={true}
               className="absolute inset-0 w-full h-full object-cover md:object-contain bg-black"
             >
-              <source src="/leoVideo.mp4" type="video/mp4" />
+              <source src="/videoPR.mp4" type="video/mp4" />
             </video>
           </div>
         </motion.div>
