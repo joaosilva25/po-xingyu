@@ -38,7 +38,7 @@ export const MentorSection = () => {
               src="/bg1.png"
                alt="fundo"
               fill
-              className="absolute inset-0 h-full w-full object-cover grayscale opacity-25"
+              className="absolute inset-0 h-full w-full object-cover grayscale opacity-40"
                style={{
             filter: "grayscale(1) saturate(0.9) contrast(1.05) brightness(0.92)",
           }}

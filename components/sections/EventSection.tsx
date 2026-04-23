@@ -69,7 +69,7 @@ export const EventSection = () => {
           className="relative w-full max-w-5xl"
         >
 
-          <div className="relative h-[28rem] md:h-[32rem] w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-black/40 backdrop-blur-2xl shadow-[0_0_60px_-45px_rgba(255,255,255,0.08)]">
+          <div className="relative h-[28rem] md:h-[32rem] w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/40 backdrop-blur-2xl shadow-[0_0_60px_-45px_rgba(255,255,255,0.08)]">
             <video
               ref={videoRef}
               playsInline

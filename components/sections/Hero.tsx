@@ -96,7 +96,7 @@ export const Hero = () => {
             </span>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             variants={staggerItemVariants}
             className="text-base sm:text-lg 3xl:text-xl text-zinc-200 sm:text-zinc-300 max-w-xl mb-8 md:mb-6 leading-relaxed  font-regular select-none text-center sm:text-left px-4 md:px-0"
           >
@@ -108,7 +108,7 @@ export const Hero = () => {
               <div className="hidden md:block absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent" />
             </span>{" "}
             aos fornecedores tradicionais.
-          </motion.p>
+          </motion.div>
 
           <motion.div
             variants={staggerItemVariants}
