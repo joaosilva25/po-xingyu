@@ -64,7 +64,7 @@ export const Header = () => {
               size="sm"
               variant="primary"
               className="px-4 py-2.5 text-[10px] sm:px-6 sm:py-3 sm:text-xs"
-              href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
+              href="https://chat.whatsapp.com/GgiaeKuxGMB5uSZakNWG2y"
             >
               <Gem
                 className="h-4 w-4 opacity-80"
