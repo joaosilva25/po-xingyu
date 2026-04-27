@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-const WHATSAPP_URL = "https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn";
+const WHATSAPP_URL = "https://chat.whatsapp.com/GgiaeKuxGMB5uSZakNWG2y?mode=gi_t";
 
 export default function RedirectPage() {
   useEffect(() => {
