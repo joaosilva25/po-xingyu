@@ -93,7 +93,7 @@ export const MentorSection = () => {
             <Button
               size="lg"
               variant="primary"
-              href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
+              href="/redirect"
             >
               <Gem
                 className="w-5 h-5 opacity-80"

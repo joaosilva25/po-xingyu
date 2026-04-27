@@ -147,7 +147,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 className="w-full md:w-auto group"
-                href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
+                href="/redirect"
               >
                 <Gem
                   className="w-5 h-5 opacity-80"

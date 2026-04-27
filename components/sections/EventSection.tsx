@@ -90,7 +90,7 @@ export const EventSection = () => {
             size="lg"
             variant="primary"
             className="group hover:bg-white text-zinc-950"
-            href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
+            href="/redirect"
           >
             <Gem className="w-5 h-5 opacity-80" aria-hidden="true" strokeWidth={1.3} />
             GARANTIR VAGA

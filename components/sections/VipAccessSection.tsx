@@ -56,7 +56,7 @@ export const VipAccessSection = () => {
                 size="lg"
                 variant="primary"
                 className="group bg-white/90 hover:bg-white text-zinc-950 mt-8 mx-auto"
-                href="https://chat.whatsapp.com/HqiL10jphxZGZL2FoJeYKn"
+                href="/redirect"
               >
                 <Gem
                   className="w-5 h-5 opacity-80"
